@@ -16,7 +16,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">관리자 페이지</a>
+		<a class="navbar-brand" href="home">관리자 페이지</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbar" aria-controls="navbar" aria-expanded="false">
 			<span class="navbar-toggler-icon"></span>
@@ -24,15 +24,15 @@
 		<div class="collapse navbar-collapse justify-content-between"
 			id="navbar">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="#">대시보드</a> <a
-					class="nav-item nav-link" href="/event">이벤트</a> <a
-					class="nav-item nav-link" href="#">블로그</a> <a
-					class="nav-item nav-link" href="#">회원</a>
+				<a class="nav-item nav-link active" href="home">대시보드</a> <a
+					class="nav-item nav-link" href="event">이벤트</a> <a
+					class="nav-item nav-link" href="blog">블로그</a> <a
+					class="nav-item nav-link" href="user">회원</a>
 			</div>
 			<div class="navbar-nav mr-sm-2">
-				<a class="nav-item nav-link" href="./userLogin.html">로그인</a> <a
-					class="nav-item nav-link" href="./userLogout.html">로그아웃</a> <a
-					class="nav-item nav-link" href="./userEdit.html">관리자 정보 수정</a>
+				<a class="nav-item nav-link" href="userLogin">로그인</a> <a
+					class="nav-item nav-link" href="userLogout">로그아웃</a> <a
+					class="nav-item nav-link" href="userEdit">관리자정보수정</a>
 			</div>
 		</div>
 	</nav>
@@ -46,14 +46,14 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="btn-group float-right">
-						<button type="button" class="btn btn-primary dropdown-toggle"
+						<button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenu"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							관리 목록▼</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item active" href="./index.html">대시보드</a> <a
-								class="dropdown-item" href="./event.html">이벤트 관리</a> <a
-								class="dropdown-item" href="./blog.html">블로그 관리</a> <a
-								class="dropdown-item" href="./user.html">회원 관리</a>
+							관리 목록</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenu">
+							<a class="dropdown-item active" href="home">대시보드</a> <a
+								class="dropdown-item" href="event">이벤트 관리</a> <a
+								class="dropdown-item" href="blog">블로그 관리</a> <a
+								class="dropdown-item" href="user">회원 관리</a>
 						</div>
 					</div>
 				</div>
@@ -70,8 +70,8 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="list-group">
-						<a href="resources/index.html" class="list-group-item active">대시보드</a> <a
-							href="resources/event.html" class="list-group-item">이벤트 관리<span
+						<a href="home" class="list-group-item active">대시보드</a> <a
+							href="event" class="list-group-item">이벤트 관리<span
 							class="badge badge-secondary">25</span></a> <a href="./blog.html"
 							class="list-group-item">블로그 관리<span
 							class="badge badge-secondary">12</span></a> <a href="./user.html"
@@ -127,7 +127,7 @@
 				</div>
 				<div class="col-md-9">
 					<div class="list-group">
-						<a href="index" class="list-group-item active">관리 페이지
+						<a href="home" class="list-group-item active">관리 페이지
 							둘러보기</a>
 						<div class="list-group-item">
 							<div class="row m-1">
