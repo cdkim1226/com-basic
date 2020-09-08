@@ -44,8 +44,7 @@
 					</a> <a href="#search" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar" data-toggle="collapse"
 						aria-expanded="false"> <img style="width: 20px;"
-						src="resources/img/search.svg"><span
-						class="d-none d-md-inline">검색</span>
+						src="resources/img/search.svg"><span class="d-none d-md-inline">검색</span>
 					</a>
 					<div class="collapse" id="search">
 						<div class="input-group p-2" style="background-color: #1c1c1c;">
@@ -54,15 +53,47 @@
 					</div>
 				</div>
 			</nav>
-			<main id="main" class="col-md-9 float-left col p1-md-5 pt-3 main">
-				<div class="page-header mt-3">
-					<h2>로그아웃</h2>
-					<br> <br>
-				</div>
+			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
+				<h4>회원 가입</h4>
+				<br>
 				<div class="col-md-9 ml-5">
-					<p class="lead">로그아웃이 완료 되었습니다.</p>
-					<hr>
-					<a href="home" class="btn btn-primary">메인으로 돌아가기</a>
+					<div class="list-group">
+						<h5 class="list-group-item active">
+							회원 가입
+							</h2>
+							<div class="list-group-item">
+								<form>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="아이디 입력">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control"
+											placeholder="비밀번호 입력">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control"
+											placeholder="비밀번호 확인">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="이름 입력">
+									</div>
+									<div class="form-group">
+										<input type="email" class="form-control" placeholder="이메일 입력">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="닉네임 입력">
+									</div>
+									<div class="form-group">
+										<select class="form-control">
+											<option selected>성별</option>
+											<option>남성</option>
+											<option>여성</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-primary">가입하기</button>
+								</form>
+							</div>
+					</div>
 				</div>
 				<footer class="text-center" style="max-width: 1080px;">
 					<p>Copyright &copy; 2020 김창대 All Rights Reserved.</p>

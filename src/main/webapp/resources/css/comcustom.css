@@ -77,3 +77,13 @@ body {
     display: none;
   }
 }
+.boardTitle {
+  background-color: #efefef;
+  padding: 6px;
+}
+.boardContent {
+  background-color: #efefef;
+  padding: 6px;
+  height: 320px;
+  overflow-y: scroll;
+}

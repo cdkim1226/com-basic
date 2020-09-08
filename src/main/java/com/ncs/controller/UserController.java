@@ -25,4 +25,10 @@ public class UserController {
 		mv.setViewName("user/userEdit");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/userJoin", method=RequestMethod.GET)
+	public ModelAndView userJoin(ModelAndView mv) {
+		mv.setViewName("user/userJoin");
+		return mv;
+	}
 }

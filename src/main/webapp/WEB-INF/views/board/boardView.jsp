@@ -29,10 +29,10 @@
 						class="d-none d-md-inline">회원관리</span>
 					</a>
 					<div class="collapse" id="usermenu">
-						<a href="userJoin" class="list-group-item" data-parent="#sidebar">회원가입</a>
-						<a href="userLogin" class="list-group-item" data-parent="#sidebar">로그인</a>
-						<a href="userEdit" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
-						<a href="userLogout" class="list-group-item" data-parent="#sidebar">로그아웃</a>
+						<a href="#" class="list-group-item" data-parent="#sidebar">회원가입</a>
+						<a href="#" class="list-group-item" data-parent="#sidebar">로그인</a>
+						<a href="#" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
+						<a href="#" class="list-group-item" data-parent="#sidebar">로그아웃</a>
 					</div>
 					<a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
@@ -54,18 +54,34 @@
 					</div>
 				</div>
 			</nav>
-			<main id="main" class="col-md-9 float-left col p1-md-5 pt-3 main">
-				<div class="page-header mt-3">
-					<h2>로그아웃</h2>
-					<br> <br>
+			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
+				<h4>글 보기</h4>
+				<br>
+				<div class="col-md-12 ml-1">
+					<div class="list-group">
+						<h5 class="list-group-item active">
+							글 보기
+							</h2>
+							<div class="list-group-item">
+								<form>
+									<div class="form-group">
+										<label>제목</label>
+										<p class="boardTitle">제목 예시입니다.</p>
+										<div class="form-group pt-3">
+											<label>내용</label>
+											<p class="boardTitle" style="height: 320px;">내용 예시입니다.</p>
+											<a href="boardEdit" class="btn btn-primary">글 수정</a> <a
+												href="#" class="btn btn-primary">글 삭제</a> <a href="board"
+												class="btn btn-primary">글 목록</a>
+										</div>
+								</form>
+							</div>
+					</div>
 				</div>
-				<div class="col-md-9 ml-5">
-					<p class="lead">로그아웃이 완료 되었습니다.</p>
-					<hr>
-					<a href="home" class="btn btn-primary">메인으로 돌아가기</a>
-				</div>
-				<footer class="text-center" style="max-width: 1080px;">
-					<p>Copyright &copy; 2020 김창대 All Rights Reserved.</p>
+				<footer class="text-center" style="max-width: 920px;">
+					<p>
+						Copyright &copy; 2020 <b>김창대</b> All Rights Reserved.
+					</p>
 				</footer>
 			</main>
 		</div>
