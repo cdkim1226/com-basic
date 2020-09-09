@@ -23,7 +23,7 @@
               <img style="width: 20px;" src="resources/img/user.svg"><span class="d-none d-md-inline">회원관리</span>
             </a>
             <div class="collapse" id="usermenu">
-              <a href="userJoin" class="list-group-item" data-parent="#sidebar">회원가입</a>
+              <a href="user/userJoin" class="list-group-item" data-parent="#sidebar">회원가입</a>
               <a href="userLogin" class="list-group-item" data-parent="#sidebar">로그인</a>
               <a href="userEdit" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
               <a href="userLogout" class="list-group-item" data-parent="#sidebar">로그아웃</a>

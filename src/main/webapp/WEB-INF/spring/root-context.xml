@@ -30,6 +30,6 @@
     </bean>
 
 	<!-- dao필요 없이 Mapper.java를 사용해서 경로 맞춰주는 설정 -->
- <!--   <mybatis-spring:scan base-package="com.ncs.mapper" /> -->
-   
+   	<mybatis-spring:scan base-package="com.ncs.mapper" />
+   	
 </beans>

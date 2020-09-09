@@ -1,5 +1,11 @@
 package com.ncs.mapper;
 
-public class UserMapper {
+import org.springframework.stereotype.Repository;
 
+import com.ncs.vo.UserVO;
+
+@Repository
+public interface UserMapper {
+
+	int join(UserVO vo);
 }

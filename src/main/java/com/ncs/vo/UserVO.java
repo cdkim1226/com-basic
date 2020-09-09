@@ -7,14 +7,14 @@ public class UserVO {
 
 	private String userid;
 	private String userpw;
+	private String userpwcheck;
 	private String enabled;
 	private String email;
+	private String sex;
 	private String username;
 	private String nickname;
 	private String joindate;
 	private String outdate;
-	
-	
 	public String getUserid() {
 		return userid;
 	}
@@ -27,6 +27,12 @@ public class UserVO {
 	public void setUserpw(String userpw) {
 		this.userpw = userpw;
 	}
+	public String getUserpwcheck() {
+		return userpwcheck;
+	}
+	public void setUserpwcheck(String userpwcheck) {
+		this.userpwcheck = userpwcheck;
+	}
 	public String getEnabled() {
 		return enabled;
 	}
@@ -38,6 +44,12 @@ public class UserVO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	public String getUsername() {
 		return username;
@@ -65,10 +77,11 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", enabled=" + enabled + ", email=" + email
-				+ ", username=" + username + ", nickname=" + nickname + ", joindate=" + joindate + ", outdate="
-				+ outdate + "]";
+		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", userpwcheck=" + userpwcheck + ", enabled="
+				+ enabled + ", email=" + email + ", sex=" + sex + ", username=" + username + ", nickname=" + nickname
+				+ ", joindate=" + joindate + ", outdate=" + outdate + "]";
 	}
+
 	
 	
 }
