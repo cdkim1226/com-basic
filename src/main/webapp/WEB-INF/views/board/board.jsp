@@ -59,36 +59,14 @@
               </tr>
             </thead>
             <tbody>
+            <c:forEach var="mm" items="${Banana}">
               <tr>
-                <td class="mobile" style="text-align: center;">5</td>
-                <td><a href="boardView" style="color: #000000;">오랜만입니다. 여러분.</a></td>
-                <td class="mobile" style="text-align: center;">운영자</td>
-                <td class="mobile" style="text-align: center;">2020-09-08</td>
+                <td class="mobile" style="text-align: center;">${mm.seq}</td>
+                <td><a href="boardView" style="color: #000000;">${mm.title}</a></td>
+                <td class="mobile" style="text-align: center;">${mm.id}</td>
+                <td class="mobile" style="text-align: center;">${mm.regdate}</td>
               </tr>
-              <tr>
-                <td class="mobile" style="text-align: center;">4</td>
-                <td><a href="boardView" style="color: #000000;">오랜만입니다. 여러분.</a></td>
-                <td class="mobile" style="text-align: center;">운영자</td>
-                <td class="mobile" style="text-align: center;">2020-09-08</td>
-              </tr>
-              <tr>
-                <td class="mobile" style="text-align: center;">3</td>
-                <td><a href="boardView" style="color: #000000;">오랜만입니다. 여러분.</a></td>
-                <td class="mobile" style="text-align: center;">운영자</td>
-                <td class="mobile" style="text-align: center;">2020-09-08</td>
-              </tr>
-              <tr>
-                <td class="mobile" style="text-align: center;">2</td>
-                <td>커뮤니티에 오신 것을 환영합니다.</td>
-                <td class="mobile" style="text-align: center;">운영자</td>
-                <td class="mobile" style="text-align: center;">2020-09-08</td>
-              </tr>
-              <tr>
-                <td class="mobile" style="text-align: center;">1</td>
-                <td>커뮤니티 웹 사이트가 개설되었습니다.</td>
-                <td class="mobile" style="text-align: center;">운영자</td>
-                <td class="mobile" style="text-align: center;">2020-09-07</td>
-              </tr>
+              </c:forEach>
             </tbody>
           </table>
           <div style="max-width: 1080px;">

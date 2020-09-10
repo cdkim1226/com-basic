@@ -28,6 +28,11 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
+    
+    <bean id="transactionManager"
+      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"></property>
+   </bean>
 
 	<!-- dao필요 없이 Mapper.java를 사용해서 경로 맞춰주는 설정 -->
    	<mybatis-spring:scan base-package="com.ncs.mapper" />

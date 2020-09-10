@@ -1,5 +1,10 @@
 package com.ncs.service;
 
-public class BoardService {
+import java.util.List;
 
+import com.ncs.vo.BoardVO;
+
+public interface BoardService { 
+
+	List<BoardVO> selectList();
 }
