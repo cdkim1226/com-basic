@@ -9,6 +9,17 @@
   		insert into user(userid,userpw,userpwcheck,email,username,nickname,sex)
   		values(#{userid},#{userpw},#{userpwcheck},#{email},#{username},#{nickname},#{sex})
   	</insert>
+  	
+  	<select id="useridDuplicate" resultType="int">
+		select count(*) from user where userid = #{userid}
+	</select>
   
-  
+  	<select id="nicknameDuplicate" resultType="int">
+		select count(*) from user where nickname = #{nickname}
+	</select>
+	
+	<select id="emailDuplicate" resultType="int">
+		select count(*) from user where email = #{email}
+	</select>
+	
   </mapper>

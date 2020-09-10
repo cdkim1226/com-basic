@@ -44,7 +44,42 @@ public class UserController {
 	public String postJoin(UserVO vo, HttpServletRequest request) {
 		userService.join(vo);
 		System.out.println(vo);
-		return "redirect:home";
+		return "redirect:/home";
 		
 	}
+	
+	 @RequestMapping(value = "/useridDuplicate")
+	 public ModelAndView useridDuplicate(ModelAndView mv, UserVO vo){
+		 if (userService.useridDuplicate(vo) > 0 ) {
+	         mv.addObject("message","fail");
+	     } else {
+	         mv.addObject("message","200");
+	     }
+	     mv.setViewName("jsonView");
+	     return mv;
+
+	 }
+	 
+	 @RequestMapping(value = "/nicknameDuplicate")
+	 public ModelAndView nicknameDuplicate(ModelAndView mv, UserVO vo){
+	     if (userService.nicknameDuplicate(vo) > 0 ) {
+	         mv.addObject("message","fail");
+	     } else {
+	         mv.addObject("message","200");
+	     }
+	     mv.setViewName("jsonView");
+	     return mv;
+	 }
+	 
+	 @RequestMapping(value = "/emailDuplicate")
+	 public ModelAndView emailDuplicate(ModelAndView mv, UserVO vo){
+	     if (userService.emailDuplicate(vo) > 0 ) {
+	         mv.addObject("message","fail");
+	     } else {
+	         mv.addObject("message","200");
+	     }
+	     mv.setViewName("jsonView");
+	     return mv;
+
+	 }
 }

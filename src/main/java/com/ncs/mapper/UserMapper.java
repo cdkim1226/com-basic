@@ -8,4 +8,7 @@ import com.ncs.vo.UserVO;
 public interface UserMapper {
 
 	int join(UserVO vo);
+	int useridDuplicate(UserVO vo);
+	int nicknameDuplicate(UserVO vo);
+	int emailDuplicate(UserVO vo);
 }
