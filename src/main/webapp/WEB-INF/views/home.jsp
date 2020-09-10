@@ -24,14 +24,14 @@
             </a>
             <div class="collapse" id="usermenu">
               <a href="user/userJoin" class="list-group-item" data-parent="#sidebar">회원가입</a>
-              <a href="userLogin" class="list-group-item" data-parent="#sidebar">로그인</a>
-              <a href="userEdit" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
-              <a href="userLogout" class="list-group-item" data-parent="#sidebar">로그아웃</a>
+              <a href="user/userLoginf" class="list-group-item" data-parent="#sidebar">로그인</a>
+              <a href="user/userEdit" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
+              <a href="user/userLogout" class="list-group-item" data-parent="#sidebar">로그아웃</a>
             </div>
-            <a href="board" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+            <a href="board/board" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="resources/img/board.svg"><span class="d-none d-md-inline">자유게시판</span>
             </a>
-            <a href="qna" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+            <a href="qna/qna" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
             </a>
             <a href="#search" class="list-group-item d-inline-block collapsed"

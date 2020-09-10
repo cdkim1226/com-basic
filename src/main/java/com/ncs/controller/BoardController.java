@@ -1,5 +1,12 @@
 package com.ncs.controller;
 
-public class BoardController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping(value = "/board")
+@Controller
+public class BoardController { 
+	
+	
 
 }

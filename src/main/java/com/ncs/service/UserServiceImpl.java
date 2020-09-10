@@ -12,6 +12,12 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserMapper userMapper;
 	
+
+	@Override
+	public UserVO read(String userid) {
+		return userMapper.read(userid);
+	}
+	
 	@Override
 	public int join(UserVO vo) {
 		return userMapper.join(vo);
@@ -31,4 +37,7 @@ public class UserServiceImpl implements UserService {
 	public int emailDuplicate(UserVO vo) {
 		return userMapper.emailDuplicate(vo);
 	}
+
+	
+	
 }

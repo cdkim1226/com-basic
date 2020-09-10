@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no">
     <title>커뮤니티 웹 사이트</title>
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/comcustom.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/comcustom.css">
   </head>
   <body>
     <div class="container-fluid">
@@ -17,11 +17,11 @@
         <nav class="col-md-3 float-left col-1 p1-0 pr-0 collapse width show" id="sidebar">
           <div class="list-group border-0 card text-center text-md-left">
             <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <img style="width: 20px;" src="resources/img/home.svg"><span class="d-none d-md-inline">메인</span>
+              <img style="width: 20px;" src="../resources/img/home.svg"><span class="d-none d-md-inline">메인</span>
             </a>
             <a href="#usermenu" class="list-group-item d-inline-block collapsed"
               data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
-              <img style="width: 20px;" src="resources/img/user.svg"><span class="d-none d-md-inline">회원관리</span>
+              <img style="width: 20px;" src="../resources/img/user.svg"><span class="d-none d-md-inline">회원관리</span>
             </a>
             <div class="collapse" id="usermenu">
               <a href="#" class="list-group-item" data-parent="#sidebar">회원가입</a>
@@ -30,14 +30,14 @@
               <a href="#" class="list-group-item" data-parent="#sidebar">로그아웃</a>
             </div>
             <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <img style="width: 20px;" src="resources/img/board.svg"><span class="d-none d-md-inline">자유게시판</span>
+              <img style="width: 20px;" src="../resources/img/board.svg"><span class="d-none d-md-inline">자유게시판</span>
             </a>
             <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <img style="width: 20px;" src="resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
+              <img style="width: 20px;" src="../resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
             </a>
             <a href="#search" class="list-group-item d-inline-block collapsed"
               data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
-              <img style="width: 20px;" src="resources/img/search.svg"><span class="d-none d-md-inline">검색</span>
+              <img style="width: 20px;" src="../resources/img/search.svg"><span class="d-none d-md-inline">검색</span>
             </a>
             <div class="collapse" id="search">
               <div class="input-group p-2" style="background-color: #1c1c1c;">
@@ -114,8 +114,8 @@
         </main>
       </div>
     </div>
-    <script src="resources/js/jquery.min.js"></script>
-    <script src="resources/js/popper.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/popper.min.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -8,8 +8,8 @@
 <meta name="viewport"
 	content="width-device-width, initial-scale=1, shrink-to-fit=no">
 <title>커뮤니티 웹 사이트</title>
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/comcustom.css">
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/comcustom.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -19,13 +19,13 @@
 				<div class="list-group border-0 card text-center text-md-left">
 					<a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="resources/img/home.svg"><span
+						src="../resources/img/home.svg"><span
 						class="d-none d-md-inline">메인</span>
 					</a> <a href="#usermenu"
 						class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar" data-toggle="collapse"
 						aria-expanded="false"> <img style="width: 20px;"
-						src="resources/img/user.svg"><span
+						src="../resources/img/user.svg"><span
 						class="d-none d-md-inline">회원관리</span>
 					</a>
 					<div class="collapse" id="usermenu">
@@ -36,15 +36,15 @@
 					</div>
 					<a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="resources/img/board.svg"><span
+						src="../resources/img/board.svg"><span
 						class="d-none d-md-inline">자유게시판</span>
 					</a> <a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
+						src="../resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
 					</a> <a href="#search" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar" data-toggle="collapse"
 						aria-expanded="false"> <img style="width: 20px;"
-						src="resources/img/search.svg"><span
+						src="../resources/img/search.svg"><span
 						class="d-none d-md-inline">검색</span>
 					</a>
 					<div class="collapse" id="search">
@@ -62,9 +62,9 @@
 					<div class="list-group">
 						<h5 class="list-group-item active">
 							로그인
-							</h2>
+						</h5>
 							<div class="list-group-item">
-								<form>
+								<form action="/userLogin" method='POST'>
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="아이디 입력">
 									</div>
@@ -83,8 +83,8 @@
 			</main>
 		</div>
 	</div>
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/jquery.min.js"></script>
+	<script src="../resources/js/popper.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -4,7 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.ncs.mapper.UserMapper">
-  	
+  	<resultMap id="userMap" type="com.ncs.vo.UserVO">
+		<result property="userid" column="userid" />
+		<result property="userpw" column="userpw" />
+		<result property="userpwcheck" column="userpw" />
+		<result property="enabled" column="enabled" />
+		<result property="email" column="email" />
+		<result property="username" column="username" />
+		<result property="nickname" column="nickname" />
+		<result property="sex" column="sex" />
+		<result property="joindate" column="joindate" />
+		<result property="outdate" column="outdate" />
+		<result property="exist" column="exist" />
+	</resultMap>
   	<insert id="join">
   		insert into user(userid,userpw,userpwcheck,email,username,nickname,sex)
   		values(#{userid},#{userpw},#{userpwcheck},#{email},#{username},#{nickname},#{sex})
@@ -22,4 +34,9 @@
 		select count(*) from user where email = #{email}
 	</select>
 	
+	<select id="read" resultMap="userMap">
+		select
+		userid, userpw, userpwcheck, enabled, email, username, nickname, sex
+		from user where userid = #{userid}
+	</select>
   </mapper>

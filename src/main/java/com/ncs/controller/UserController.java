@@ -18,10 +18,17 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/userLogin" , method=RequestMethod.GET)
+	@RequestMapping(value = "/userLoginf")
 	public ModelAndView userLogin(ModelAndView mv) {
 		mv.setViewName("user/userLogin");
 		return mv;
+	}
+	
+	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
+	public String userLogin(UserVO vo) {
+		System.out.println(vo);
+		userService.read(vo.getUserid());
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(value = "/userLogout", method=RequestMethod.GET)

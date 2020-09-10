@@ -11,4 +11,5 @@ public interface UserMapper {
 	int useridDuplicate(UserVO vo);
 	int nicknameDuplicate(UserVO vo);
 	int emailDuplicate(UserVO vo);
+	UserVO read(String userid);
 }
