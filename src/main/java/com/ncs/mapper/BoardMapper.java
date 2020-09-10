@@ -1,6 +1,6 @@
 package com.ncs.mapper;
 
-import java.util.List;
+import java.util.List; 
 
 import org.springframework.stereotype.Repository;
 

@@ -22,7 +22,6 @@ public class BoardController {
 	public ModelAndView board(ModelAndView mv) {
 		List<BoardVO> list = boardService.selectList();
 		mv.addObject("Banana", list);
-			System.out.println(list);
 		mv.setViewName("board/board");
 		return mv;
 	}
