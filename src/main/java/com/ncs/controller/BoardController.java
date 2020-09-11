@@ -31,7 +31,7 @@ public class BoardController {
 	public ModelAndView boardWrite(ModelAndView mv, BoardVO vo) {
 		if(boardService.insert(vo)>0) {
 			System.out.println(vo);
-			mv.setViewName("redirect:/board/board");
+			mv.setViewName("redirect:/board/boardView?seq="+vo.getSeq());
 		}else {
 			mv.setViewName("board/fail");
 		}
@@ -42,4 +42,14 @@ public class BoardController {
 	public void WriteForm() {
 	}
 
+	@RequestMapping(value = "/boardView")
+	public ModelAndView boardView(ModelAndView mv, BoardVO vo) {
+		vo = boardService.selectOne(vo);
+		if(vo != null) {
+			System.out.println(vo.getTitle());
+			mv.addObject("get",vo);
+			mv.setViewName("board/boardView");
+		}
+		return mv;
+	}
 }

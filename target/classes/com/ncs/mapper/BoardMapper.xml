@@ -6,14 +6,19 @@
   <mapper namespace="com.ncs.mapper.BoardMapper">
  
   	<select id="selectList" resultType="com.ncs.vo.BoardVO">
-  		select seq, title, id, regdate from board order by seq
+  		select seq, title, id, regdate from board order by seq desc
   	</select>
  
  	<insert id="insert">
  	<selectKey keyProperty="seq" order="BEFORE" resultType="int">
  		select IFNULL(MAX(seq),0)+1 as seq from board
  	</selectKey>
- 	insert into board(seq, title, content, id)
- 	values(#{seq},#{title},#{content},#{id})
+ 		insert into board(seq, title, content, id)
+ 		values(#{seq},#{title},#{content},#{id})
  	</insert>
+ 	
+ 	<select id="selectOne" resultType="com.ncs.vo.BoardVO">
+ 		select * from board where seq=#{seq}
+ 	</select>
+ 	
   </mapper>

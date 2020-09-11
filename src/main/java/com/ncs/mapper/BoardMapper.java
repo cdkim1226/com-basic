@@ -11,5 +11,6 @@ public interface BoardMapper {
 
 	public List<BoardVO> selectList();
 	public int insert(BoardVO boardVO);
+	public BoardVO selectOne(BoardVO boardVO);
 
 }

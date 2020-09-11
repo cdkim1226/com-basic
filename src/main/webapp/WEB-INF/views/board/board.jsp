@@ -62,7 +62,7 @@
             <c:forEach var="mm" items="${Banana}">
               <tr>
                 <td class="mobile" style="text-align: center;">${mm.seq}</td>
-                <td><a href="boardView" style="color: #000000;">${mm.title}</a></td>
+                <td style="text-align: center;"><a href="/board/boardView?seq=${mm.seq}" style="color: #000000;">${mm.title}</a></td>
                 <td class="mobile" style="text-align: center;">${mm.id}</td>
                 <td class="mobile" style="text-align: center;">${mm.regdate}</td>
               </tr>
