@@ -9,4 +9,11 @@
   		select seq, title, id, regdate from board order by seq
   	</select>
  
+ 	<insert id="insert">
+ 	<selectKey keyProperty="seq" order="BEFORE" resultType="int">
+ 		select IFNULL(MAX(seq),0)+1 as seq from board
+ 	</selectKey>
+ 	insert into board(seq, title, content, id)
+ 	values(#{seq},#{title},#{content},#{id})
+ 	</insert>
   </mapper>

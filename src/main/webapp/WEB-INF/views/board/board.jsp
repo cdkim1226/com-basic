@@ -70,7 +70,7 @@
             </tbody>
           </table>
           <div style="max-width: 1080px;">
-            <a href="boardWrite" class="btn btn-primary float-right">글쓰기</a>
+            <a href="/board/boardWrite" class="btn btn-primary float-right">글쓰기</a>
           </div>
           <ul class="pagination">
             <li class="page-item disabled">

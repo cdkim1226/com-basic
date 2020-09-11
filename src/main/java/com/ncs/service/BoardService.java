@@ -7,4 +7,5 @@ import com.ncs.vo.BoardVO;
 public interface BoardService { 
 
 	List<BoardVO> selectList();
+	int insert(BoardVO boardVO);
 }

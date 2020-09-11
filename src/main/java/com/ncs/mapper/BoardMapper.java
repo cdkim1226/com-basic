@@ -10,5 +10,6 @@ import com.ncs.vo.BoardVO;
 public interface BoardMapper {
 
 	public List<BoardVO> selectList();
+	public int insert(BoardVO boardVO);
 
 }
