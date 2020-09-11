@@ -52,4 +52,20 @@ public class BoardController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value = "/boardEdit", method = RequestMethod.GET)
+	public ModelAndView getEdit(ModelAndView mv, BoardVO vo) {
+		return mv.addObject("get",boardService.selectOne(vo));
+	}
+	
+	@RequestMapping(value = "/boardEdit",method = RequestMethod.POST)
+	public ModelAndView boardEdit(ModelAndView mv, BoardVO vo) {
+		if(boardService.update(vo) > 0) {
+			System.out.println(vo.getSeq());
+			mv.setViewName("redirect:/board/boardView?seq="+vo.getSeq());
+		}else {
+			mv.setViewName("board/fail");
+		}
+		return mv;
+	}
 }

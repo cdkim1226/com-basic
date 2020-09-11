@@ -27,6 +27,11 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO selectOne(BoardVO boardVO) {
 		return boardMapper.selectOne(boardVO);
+	}
+
+	@Override
+	public int update(BoardVO boardVO) {
+		return boardMapper.update(boardVO);
 	} 
 	
 

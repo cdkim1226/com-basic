@@ -9,4 +9,6 @@ public interface BoardService {
 	List<BoardVO> selectList();
 	int insert(BoardVO boardVO);
 	BoardVO selectOne(BoardVO boardVO);
+	int update(BoardVO boardVO);
+	
 }

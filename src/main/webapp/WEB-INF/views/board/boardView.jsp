@@ -57,28 +57,29 @@
 			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
 				<h4>글 보기</h4>
 				<br>
-				<div class="col-md-12 ml-1">
-					<div class="list-group">
-						<h2 class="list-group-item active">
-							글 보기
-						</h2>
-							<div class="list-group-item">
-								<form>
-									<div class="form-group">
-										<label>제목</label>
-										<p class="boardTitle">${get.title}</p>
-										<div class="form-group pt-3">
-											<label>내용</label>
-											<p class="boardTitle" style="height: 320px;">${get.content}</p>
-											<a href="boardEdit" class="btn btn-primary">글 수정</a> <a
-												href="#" class="btn btn-primary">글 삭제</a> <a href="board"
-												class="btn btn-primary">글 목록</a>
-										</div>
+				<div class="list-group" style="max-width: 1080px;">
+					<h5 class="list-group-item active">
+						글 보기
+					</h5>
+						<div class="list-group-item">
+							<form>
+								<div class="form-group">
+									<span class="form-group-item-text">#${get.seq}</span>
+									<span class="form-group-item-text">#${get.id}</span>
+									<br>
+									<label>제목</label>
+									<p class="boardTitle">${get.title}</p>
+									<div class="form-group pt-3">
+										<label>내용</label>
+										<p class="boardTitle" style="height: 320px;">${get.content}</p>
+										<a href="/board/boardEdit" class="btn btn-primary">글 수정</a> <a
+											href="#" class="btn btn-primary">글 삭제</a> <a href="board"
+											class="btn btn-primary">글 목록</a>
 									</div>
-								</form>
-							</div>
+								</div>
+							</form>
+						</div>
 					</div>
-				</div>
 				<footer class="text-center" style="max-width: 920px;">
 					<p>
 						Copyright &copy; 2020 <b>김창대</b> All Rights Reserved.

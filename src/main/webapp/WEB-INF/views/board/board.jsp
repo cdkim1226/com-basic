@@ -55,7 +55,7 @@
                 <th class="mobile" style="width: 60px; text-align: center;">번호</th>
                 <th style="text-align: center;">제목</th>
                 <th class="mobile" style="width: 80px; text-align: center;">작성자</th>
-                <th class="mobile" style="width: 120px; text-align: center;">날짜</th>
+                <th class="mobile" style="width: 280px; text-align: center;">날짜</th>
               </tr>
             </thead>
             <tbody>
@@ -72,20 +72,20 @@
           <div style="max-width: 1080px;">
             <a href="/board/boardWrite" class="btn btn-primary float-right">글쓰기</a>
           </div>
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <span class="page-link">&laquo;</span>
-            </li>
-            <li class="page-item"><a class="page-link mobile" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link mobile" href="#">2</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">3</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">4</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">5</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">6</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">7</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">8</a></li>
-            <li class="page-item"><a class="page-link mobile" href="#">9</a></li>
-          </ul>
+	          <ul class="pagination justify-content-center">
+	            <li class="page-item disabled">
+	              <span class="page-link">&laquo;</span>
+	            </li>
+	            <li class="page-item"><a class="page-link mobile" href="#">1</a></li>
+	            <li class="page-item active"><a class="page-link mobile" href="#">2</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">3</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">4</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">5</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">6</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">7</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">8</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">9</a></li>
+	          </ul>
           <footer class="text-center" style="max-width: 920px;">
             <p>Copyright &copy; 2020 김창대 All Rights Reserved.</p>
           </footer>

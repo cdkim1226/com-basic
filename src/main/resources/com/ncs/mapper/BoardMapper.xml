@@ -21,4 +21,7 @@
  		select * from board where seq=#{seq}
  	</select>
  	
+ 	<update id="update">
+ 		update board set title=#{title}, content=#{content}, updatedate=now(), where seq=#{seq}
+ 	</update>
   </mapper>
