@@ -72,8 +72,8 @@
 									<div class="form-group pt-3">
 										<label>내용</label>
 										<p class="boardTitle" style="height: 320px;">${get.content}</p>
-										<a href="/board/boardEdit" class="btn btn-primary">글 수정</a> <a
-											href="#" class="btn btn-primary">글 삭제</a> <a href="board"
+										<a href="/board/boardEdit" class="btn btn-primary">글 수정</a> 
+										<a href="#" class="btn btn-primary">글 삭제</a> <a href="board"
 											class="btn btn-primary">글 목록</a>
 									</div>
 								</div>

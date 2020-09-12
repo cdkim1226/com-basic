@@ -73,7 +73,6 @@
 									<button type="submit" class="btn btn-primary">글 수정</button>
 									<input type="hidden" name="id" value="">
 									<input type="hidden" name="seq" value="${get.seq}">
-									<input type="hidden" name="updatedate" value="">
 								</div>
 							</form>
 						</div>

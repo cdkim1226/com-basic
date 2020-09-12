@@ -22,6 +22,6 @@
  	</select>
  	
  	<update id="update">
- 		update board set title=#{title}, content=#{content}, updatedate=now(), where seq=#{seq}
+ 		update board set title=#{title}, content=#{content} where seq=#{seq}
  	</update>
   </mapper>
