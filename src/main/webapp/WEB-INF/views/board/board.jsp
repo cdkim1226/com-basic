@@ -16,7 +16,7 @@
       <div class="row d-flex d-md-block flex-nowrap wrapper">
         <nav class="col-md-3 float-left col-1 p1-0 pr-0 collapse width show" id="sidebar">
           <div class="list-group border-0 card text-center text-md-left">
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+            <a href="/" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="../resources/img/home.svg"><span class="d-none d-md-inline">메인</span>
             </a>
             <a href="#usermenu" class="list-group-item d-inline-block collapsed"
@@ -29,7 +29,7 @@
               <a href="#" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
               <a href="#" class="list-group-item" data-parent="#sidebar">로그아웃</a>
             </div>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+            <a href="/board/board" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="../resources/img/board.svg"><span class="d-none d-md-inline">자유게시판</span>
             </a>
             <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
