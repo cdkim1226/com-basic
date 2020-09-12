@@ -46,7 +46,7 @@ public class BoardController {
 	public ModelAndView boardView(ModelAndView mv, BoardVO vo) {
 		vo = boardService.selectOne(vo);
 		if(vo != null) {
-			System.out.println(vo.getTitle());
+			System.out.println(vo);
 			mv.addObject("get",vo);
 			mv.setViewName("board/boardView");
 		}
@@ -55,6 +55,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/boardEdit", method = RequestMethod.GET)
 	public ModelAndView getEdit(ModelAndView mv, BoardVO vo) {
+		System.out.println(boardService.selectOne(vo));
 		return mv.addObject("get",boardService.selectOne(vo));
 	}
 	

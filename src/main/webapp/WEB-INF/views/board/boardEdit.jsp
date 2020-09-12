@@ -67,11 +67,11 @@
 										placeholder="제목을 입력하세요." value="${get.title}">
 									<div class="form-group pt-3">
 										<label>내용</label>
-										<textarea class="form-control" name="content" style="height: 320px;"
+										<textarea class="form-control" name="content" id="content" style="height: 320px;"
 											placeholder="내용을 입력하세요.">${get.content}</textarea>
 									</div>
 									<button type="submit" class="btn btn-primary">글 수정</button>
-									<input type="hidden" name="id" value="">
+									<input type="hidden" name="id" value="${get.id}">
 									<input type="hidden" name="seq" value="${get.seq}">
 								</div>
 							</form>
