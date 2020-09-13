@@ -69,4 +69,14 @@ public class BoardController {
 		}
 		return mv;
 	}
+	
+	@RequestMapping(value = "/delete")
+	public ModelAndView delete(ModelAndView mv, BoardVO vo) {
+		if(boardService.delete(vo) > 0) {
+			mv.setViewName("redirect:/board/board");
+		}else {
+			mv.setViewName("redirect:/board/get?seq="+vo.getSeq());
+		}
+		return mv;
+	}
 }

@@ -13,5 +13,6 @@ public interface BoardMapper {
 	public int insert(BoardVO boardVO);
 	public BoardVO selectOne(BoardVO boardVO);
 	public int update(BoardVO boardVO);
+	public int delete(BoardVO boardVO);
 
 }

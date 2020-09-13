@@ -10,6 +10,15 @@
 <title>커뮤니티 웹 사이트</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/comcustom.css">
+<script>
+function del() {
+	if(confirm("정말 삭제하시겠습니까?")==true){
+		document.remove.submit();
+	}else{
+		return;
+	}
+} // del()
+</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -66,6 +75,7 @@
 								<div class="form-group">
 									<span class="form-group-item-text">#${get.seq}</span>
 									<span class="form-group-item-text">#${get.id}</span>
+									<span class="form-group-item-text" title="${get.updatedate}">#${get.updatedate}</span>
 									<br>
 									<label>제목</label>
 									<p class="boardTitle">${get.title}</p>
@@ -73,8 +83,9 @@
 										<label>내용</label>
 										<p class="boardTitle" style="height: 320px;">${get.content}</p>
 										<a href="/board/boardEdit?seq=${get.seq}&id=${get.id}" class="btn btn-primary">글 수정</a> 
-										<a href="/board/delete?seq=${get.seq}&id=${get.id}" class="btn btn-primary">글 삭제</a> <a href="board"
-											class="btn btn-primary">글 목록</a>
+										<a href="/board/delete?seq=${get.seq}&id=${get.id}" 
+										onclick="return confirm(&#39;정말로 삭제하시겠습니까?&#39;)" class="btn btn-primary">글 삭제</a> 
+										<a href="board" class="btn btn-primary">글 목록</a>
 									</div>
 								</div>
 							</form>
