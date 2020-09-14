@@ -6,7 +6,7 @@
   <mapper namespace="com.ncs.mapper.BoardMapper">
  
   	<select id="selectList" resultType="com.ncs.vo.BoardVO">
-  		select seq, title, id, regdate from board order by seq desc
+  		select seq, title, id, regdate from board where exist=1 order by seq desc
   	</select>
  
  	<insert id="insert">

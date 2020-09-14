@@ -20,7 +20,7 @@ public class BoardController {
 	BoardService boardService;
 	
 	@RequestMapping(value = "/board")
-	public ModelAndView board(ModelAndView mv) {
+	public ModelAndView board(ModelAndView mv, BoardVO vo) {
 		List<BoardVO> list = boardService.selectList();
 		mv.addObject("Banana", list);
 		mv.setViewName("board/board");
