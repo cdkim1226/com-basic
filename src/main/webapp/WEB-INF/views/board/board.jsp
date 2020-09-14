@@ -73,18 +73,40 @@
             <a href="/board/boardWrite" class="btn btn-primary float-right">글쓰기</a>
           </div>
 	          <ul class="pagination justify-content-center">
-	            <li class="page-item disabled">
-	              <span class="page-link">&laquo;</span>
+	          	<c:if test="${pageMake.prev}">
+	          	<li class="page-item disabled">
+              		<a href="/board/board${pageMaker.makeSeach(1)}">First&nbsp;</a>
 	            </li>
-	            <li class="page-item"><a class="page-link mobile" href="#">1</a></li>
-	            <li class="page-item active"><a class="page-link mobile" href="#">2</a></li>
+	            <li class="page-item disabled">
+	              <a href="/board/board${pageMaker.makeSeach(pageMaker.sPageNo-1)}" class="page-link mobile">&laquo;</a>
+	            </li>
+	            </c:if>
+	            <c:forEach begin="${pageMaker.sPageNo}" end="${pageMaker.ePageNo}" var="i">
+	            	<c:choose>
+	            		<c:when test="${pageMaker.cri.currPage==i}">
+	            			 <li class="page-item active"><span class="page-link mobile">${i}</span></li>
+	            		</c:when>
+	            		<c:otherwise>
+	            			<li class="page-item"><a href="/board/board${pageMaker.makeSearch(i)}" class="page-link mobile">${i}</a></li>
+	            		</c:otherwise>
+	            	</c:choose>
+	            </c:forEach>
+	           	<c:if test="${pageMaker.next && pageMaker.ePageNo > 0}">
+	            	<li class="page-item disabled">
+	              		<a href="/board/board${pageMaker.makeSeach(pageMaker.sPageNo+1)}" class="page-link mobile">&raquo;</a>
+	            	</li>
+	            	<li class="page-item disabled">
+              			<a href="/board/board${pageMaker.makeSeach(pageMaker.lastPageNo)}">&nbsp;Last</a>
+	            	</li>
+	           	</c:if>
+	            <!-- <li class="page-item active"><a class="page-link mobile" href="#">2</a></li>
 	            <li class="page-item"><a class="page-link mobile" href="#">3</a></li>
 	            <li class="page-item"><a class="page-link mobile" href="#">4</a></li>
 	            <li class="page-item"><a class="page-link mobile" href="#">5</a></li>
 	            <li class="page-item"><a class="page-link mobile" href="#">6</a></li>
 	            <li class="page-item"><a class="page-link mobile" href="#">7</a></li>
 	            <li class="page-item"><a class="page-link mobile" href="#">8</a></li>
-	            <li class="page-item"><a class="page-link mobile" href="#">9</a></li>
+	            <li class="page-item"><a class="page-link mobile" href="#">9</a></li> -->
 	          </ul>
           <footer class="text-center" style="max-width: 920px;">
             <p>Copyright &copy; 2020 김창대 All Rights Reserved.</p>

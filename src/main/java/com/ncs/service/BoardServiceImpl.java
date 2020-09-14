@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ncs.mapper.BoardMapper;
+import com.ncs.util.SearchCriteria;
 import com.ncs.vo.BoardVO;
 
 @Service
@@ -37,6 +38,21 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int delete(BoardVO boardVO) {
 		return boardMapper.delete(boardVO);
+	}
+
+	@Override
+	public int totalRowCount() {
+		return boardMapper.totalRowCount();
+	}
+
+	@Override
+	public int searhRowCount(SearchCriteria searchCriteria) {
+		return boardMapper.searchRowCount(searchCriteria);
+	}
+
+	@Override
+	public List<BoardVO> searchList(SearchCriteria searchCriteria) {
+		return boardMapper.searchList(searchCriteria);
 	} 
 
 }

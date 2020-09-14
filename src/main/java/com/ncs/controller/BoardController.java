@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ncs.service.BoardService;
+import com.ncs.util.PageMaker;
+import com.ncs.util.SearchCriteria;
 import com.ncs.vo.BoardVO;
 
 @RequestMapping(value = "/board/")
@@ -20,9 +22,14 @@ public class BoardController {
 	BoardService boardService;
 	
 	@RequestMapping(value = "/board")
-	public ModelAndView board(ModelAndView mv, BoardVO vo) {
-		List<BoardVO> list = boardService.selectList();
+	public ModelAndView board(ModelAndView mv, SearchCriteria cri) {
+		cri.setSnoEno();
+		List<BoardVO> list = boardService.searchList(cri);
 		mv.addObject("Banana", list);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalRow(boardService.searhRowCount(cri));
+		mv.addObject("pageMaker",pageMaker);
 		mv.setViewName("board/board");
 		return mv;
 	}
