@@ -64,12 +64,8 @@ function del() {
 				</div>
 			</nav>
 			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
-				<h4>글 보기</h4>
-				<br>
-				<div class="list-group" style="max-width: 1080px;">
-					<h5 class="list-group-item active">
-						글 보기
-					</h5>
+				<div class="list-group ml-5" style="max-width: 1080px;">
+					<h5 class="list-group-item active">글 보기</h5>
 						<div class="list-group-item">
 							<form>
 								<div class="form-group">
@@ -86,6 +82,22 @@ function del() {
 										<a href="/board/delete?seq=${get.seq}&id=${get.id}" 
 										onclick="return confirm(&#39;정말로 삭제하시겠습니까?&#39;)" class="btn btn-primary">글 삭제</a> 
 										<a href="board" class="btn btn-primary">글 목록</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div><br><br>
+					<!-- 댓글 -->
+					<div class="list-group ml-5" style="max-width: 1080px;">
+					<h5 class="list-group-item" style="background: lightgray;">댓글</h5>
+						<div class="list-group-item">
+							<form>
+								<div class="form-group">
+									<span class="form-group-item-text">#${reply.rid}</span>
+									<span class="form-group-item-text" title="${reply.rregdate}">#${reply.rregdate}</span>
+									<br>
+									<div class="form-group pt-3">
+										<p class="boardTitle" style="height: 110px;">#${reply.rcontent}</p>
 									</div>
 								</div>
 							</form>
