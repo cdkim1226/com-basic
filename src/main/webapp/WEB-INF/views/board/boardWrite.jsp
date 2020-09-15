@@ -74,6 +74,7 @@
 										</div>
 										<button type="submit" class="btn btn-primary">작성 완료</button>
 										<input type="hidden" name="id" value="창다이"/>
+										<a href="/board/board" class="btn btn-primary" onclick="return confirm(&#39;정말로 취소하시겠습니까?&#39;)">취소</a>
 									</div>
 								</form>
 							</div>
