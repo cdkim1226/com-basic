@@ -10,6 +10,19 @@
     <title>커뮤니티 웹 사이트</title>
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/comcustom.css">
+    <script>
+		$(function(){
+			$('#searchBtn').on("click",function(){
+				self.location="/board/board"
+					+"${pageMaker.makeQuery(1)}"
+					+"&searchType="
+					+$("#searchType").val()
+					/* + $("select option:selected").val() */
+					+"&keyword="
+					+$("#keyword").val();
+			});
+		}); // ready 
+	</script>
   </head>
   <body>
     <div class="container-fluid">
@@ -47,8 +60,34 @@
           </div>
         </nav>
         <main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
-          <h4>자유 게시판</h4>
-          <br>
+          <div class="col-md-7" id="searchBar">
+            <div class="list-group">
+            	<div class="form-group">
+            		<div class="form-row">
+					<select class="form-control col-md-2" name="searchType" id="searchType">
+					<%-- <option value="n" <c:out value="${pageMaker.cri.searchType==null ? 'selected':'' }"/>>
+					---</option> --%>
+					<option value="t" <c:out value="${pageMaker.cri.searchType eq 't' ? 'selected':'' }"/>>
+					제목</option>
+					<option value="c" <c:out value="${pageMaker.cri.searchType eq 'c' ? 'selected':'' }"/>>
+					내용</option>
+					<option value="w" <c:out value="${pageMaker.cri.searchType eq 'w' ? 'selected':'' }"/>>
+					작성자</option>
+					<%-- 	<option value="tc" <c:out value="${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }"/>>
+					Title or Content</option>
+					<option value="cw" <c:out value="${pageMaker.cri.searchType eq 'cw' ? 'selected':'' }"/>>
+					Content or Writer</option>
+					<option value="tcw" <c:out value="${pageMaker.cri.searchType eq 'tcw' ? 'selected':'' }"/>>
+					Title or Content or Writer</option> --%>
+					</select>
+					<input class="form-control col-md-5" type="text" name="keyword" id="keyword" value="${pageMaker.cri.keyword}" placeholder="검색어">
+					<button type="submit" id="searchBtn" class="btn btn-md btn-primary">검색</button>
+					</div>
+				</div>
+			</div>
+		</div>
+          <div class="list-group">
+          <span class="list-group-item active" style="max-width: 1080px;">자유게시판</span>
           <table class="table table-striped" style="max-width: 1080px;">
             <thead>
               <tr>
@@ -69,6 +108,7 @@
               </c:forEach>
             </tbody>
           </table>
+          </div>
           <div style="max-width: 1080px;">
             <a href="/board/boardWrite" class="btn btn-primary float-right">글쓰기</a>
           </div>
