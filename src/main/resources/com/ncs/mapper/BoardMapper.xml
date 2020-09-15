@@ -73,11 +73,9 @@
    		from board where ( exist = 1
      	]]>
      	<include refid="search"></include>
-     	<choose>
-     		<when test="sorted == null or sorted.equals('')">
-				order by seq desc
-			</when>
-	 	</choose>
+     	<if test="searchType == null or searchType.equals('')">
+     		order by seq desc
+     	</if>
      	limit #{start} , #{perPageRow}
   	</select>
   	
