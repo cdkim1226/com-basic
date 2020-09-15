@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ncs.service.BoardService;
+import com.ncs.service.ReplyService;
 import com.ncs.util.PageMaker;
 import com.ncs.util.SearchCriteria;
 import com.ncs.vo.BoardVO;
+import com.ncs.vo.ReplyVO;
 
 @RequestMapping(value = "/board/")
 @Controller
@@ -20,6 +22,9 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
+	
+	@Autowired
+	ReplyService replyService;
 	
 	@RequestMapping(value = "/board")
 	public ModelAndView board(ModelAndView mv, SearchCriteria cri) {
@@ -50,7 +55,13 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boardView")
-	public ModelAndView boardView(ModelAndView mv, BoardVO vo) {
+	public ModelAndView boardView(ModelAndView mv, BoardVO vo, ReplyVO rvo) {
+		
+		rvo = replyService.selectOne(rvo);
+		if(rvo != null) {
+			mv.addObject("reply",rvo);
+		}
+		
 		vo = boardService.selectOne(vo);
 		if(vo != null) {
 			System.out.println(vo);
