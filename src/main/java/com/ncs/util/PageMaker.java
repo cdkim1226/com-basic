@@ -11,7 +11,7 @@ public class PageMaker {
 	private int ePageNo;  // View에 표시할 끝 PageNo
 	private boolean prev; // 이전 Page블럭 으로
 	private boolean next; // 다음 Page블럭 으로
-	private int displayPageNo=10;  // View에 표시할 PageNo의 갯수
+	private int displayPageNo=3;  // View에 표시할 PageNo의 갯수
 	private int lastPageNo;  
 	// 출력 가능한 마지막 PageNo (totalRow, perPageRow 로 계산)
 	
@@ -92,7 +92,7 @@ public class PageMaker {
  	//    파라미터가 조합된 uri를 손쉽게 만들어줌
 	// => ?currPage=8&PerPageRow=10 이것을 만들어줌
     //    ? 부터 만들어지므로 jsp Code에서 ? 포함하지 않도록 주의 
-	//?currPage=currPage&PerPageRow=perPageRow
+	
 	public String makeQuery(int currPage) {
 		UriComponents uriComponents =
 				UriComponentsBuilder.newInstance()
@@ -110,8 +110,6 @@ public class PageMaker {
 				.queryParam("PerPageRow", cri.getPerPageRow())
 				.queryParam("searchType", cri.getSearchType())
 				.queryParam("keyword", cri.getKeyword())
-				.queryParam("category", cri.getCategory())
-				.queryParam("sorted", cri.getSorted())
 				.build();
 		return uriComponents.toUriString();
 	} // makeSearch()
