@@ -8,8 +8,10 @@ public class ReplyVO {
 	private String rregdate;
 	private String rupdatedate;
 	private int rexist;
-	private int req;
+	private int seq;
 	private int board;
+	
+	
 	public int getRseq() {
 		return rseq;
 	}
@@ -46,11 +48,11 @@ public class ReplyVO {
 	public void setRexist(int rexist) {
 		this.rexist = rexist;
 	}
-	public int getReq() {
-		return req;
+	public int getSeq() {
+		return seq;
 	}
-	public void setReq(int req) {
-		this.req = req;
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 	public int getBoard() {
 		return board;
@@ -61,9 +63,8 @@ public class ReplyVO {
 	@Override
 	public String toString() {
 		return "ReplyVO [rseq=" + rseq + ", rid=" + rid + ", rcontent=" + rcontent + ", rregdate=" + rregdate
-				+ ", rupdatedate=" + rupdatedate + ", rexist=" + rexist + ", req=" + req + ", board=" + board + "]";
+				+ ", rupdatedate=" + rupdatedate + ", rexist=" + rexist + ", seq=" + seq + ", board=" + board + "]";
 	}
-	
 	
 	
 }
