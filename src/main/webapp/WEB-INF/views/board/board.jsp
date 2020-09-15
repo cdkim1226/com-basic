@@ -15,16 +15,14 @@
 $(function(){
 	$('#searchBtn').on("click",function(){
 				self.location="/board/board"
-					+"${pageMaker.makeQuery(1)}"
-					+"&searchType="
-					+$("#searchType").val()
-					/* + $("select option:selected").val() */
-					+"&keyword="
-					+$("#keyword").val();
+				+"${pageMaker.makeQuery(1)}"
+				+"&searchType="
+				+$("#searchType").val()
+				/* + $("select option:selected").val() */
+				+"&keyword="
+				+$("#keyword").val();
 	});
 }); // ready 
-
-
 </script>
   </head>
   <body>
@@ -157,6 +155,7 @@ $(function(){
         </main>
       </div>
     </div>
+    
     <script src="../resources/js/popper.min.js"></script>
     <script src="../resources/js/bootstrap.min.js"></script>
   </body>
