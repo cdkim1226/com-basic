@@ -10,9 +10,10 @@
     <title>커뮤니티 웹 사이트</title>
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../resources/css/comcustom.css">
+    <script src="../resources/js/jquery.min.js"></script>
     <script>
-		$(function(){
-			$('#searchBtn').on("click",function(){
+$(function(){
+	$('#searchBtn').on("click",function(){
 				self.location="/board/board"
 					+"${pageMaker.makeQuery(1)}"
 					+"&searchType="
@@ -20,9 +21,11 @@
 					/* + $("select option:selected").val() */
 					+"&keyword="
 					+$("#keyword").val();
-			});
-		}); // ready 
-	</script>
+	});
+}); // ready 
+
+
+</script>
   </head>
   <body>
     <div class="container-fluid">
@@ -60,11 +63,11 @@
           </div>
         </nav>
         <main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
-          <div class="col-md-7" id="searchBar">
-            <div class="list-group">
+           <div class="col-md-8">
+            <div class="list-group ml-5">
             	<div class="form-group">
-            		<div class="form-row">
-					<select class="form-control col-md-2" name="searchType" id="searchType">
+            		<div class="form-row" id="searchBar">
+					<select class="form-control col-md-3" name="searchType" id="searchType">
 					<%-- <option value="n" <c:out value="${pageMaker.cri.searchType==null ? 'selected':'' }"/>>
 					---</option> --%>
 					<option value="t" <c:out value="${pageMaker.cri.searchType eq 't' ? 'selected':'' }"/>>
@@ -73,20 +76,20 @@
 					내용</option>
 					<option value="w" <c:out value="${pageMaker.cri.searchType eq 'w' ? 'selected':'' }"/>>
 					작성자</option>
-					<%-- 	<option value="tc" <c:out value="${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }"/>>
+					<%-- <option value="tc" <c:out value="${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }"/>>
 					Title or Content</option>
 					<option value="cw" <c:out value="${pageMaker.cri.searchType eq 'cw' ? 'selected':'' }"/>>
 					Content or Writer</option>
 					<option value="tcw" <c:out value="${pageMaker.cri.searchType eq 'tcw' ? 'selected':'' }"/>>
 					Title or Content or Writer</option> --%>
 					</select>
-					<input class="form-control col-md-5" type="text" name="keyword" id="keyword" value="${pageMaker.cri.keyword}" placeholder="검색어">
-					<button type="submit" id="searchBtn" class="btn btn-md btn-primary">검색</button>
+						<input type="text" class="form-control col-md-5" name="keyword" id="keyword" value="${pageMaker.cri.keyword}" placeholder="검색어">
+						<button id="searchBtn" class="btn btn-md btn-primary">검색</button>
 					</div>
 				</div>
 			</div>
 		</div>
-          <div class="list-group">
+          <div class="list-group ml-5">
           <span class="list-group-item active" style="max-width: 1080px;">자유게시판</span>
           <table class="table table-striped" style="max-width: 1080px;">
             <thead>
@@ -154,7 +157,6 @@
         </main>
       </div>
     </div>
-    <script src="../resources/js/jquery.min.js"></script>
     <script src="../resources/js/popper.min.js"></script>
     <script src="../resources/js/bootstrap.min.js"></script>
   </body>
