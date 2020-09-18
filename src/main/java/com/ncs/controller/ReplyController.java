@@ -16,7 +16,6 @@ public class ReplyController {
 	@Autowired
 	ReplyService replyService;
 	
-	
 	@RequestMapping(value = "/replyWrite", method = RequestMethod.POST)
 	public String replyWrite(ReplyVO rvo) {
 		replyService.insert(rvo);
