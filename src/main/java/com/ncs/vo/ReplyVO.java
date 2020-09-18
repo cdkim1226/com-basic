@@ -9,7 +9,7 @@ public class ReplyVO {
 	private String rupdatedate;
 	private int rexist;
 	private int seq;
-	private int board;
+	private String board;
 	
 	
 	public int getRseq() {
@@ -54,10 +54,10 @@ public class ReplyVO {
 	public void setSeq(int seq) {
 		this.seq = seq;
 	}
-	public int getBoard() {
+	public String getBoard() {
 		return board;
 	}
-	public void setBoard(int board) {
+	public void setBoard(String board) {
 		this.board = board;
 	}
 	@Override
