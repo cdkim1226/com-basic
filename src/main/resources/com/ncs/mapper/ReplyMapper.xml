@@ -4,8 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.ncs.mapper.ReplyMapper">
-  	<select id="selectOne" resultType="com.ncs.vo.ReplyVO">
+  
+  	<select id="selectList" resultType="com.ncs.vo.ReplyVO">
+  		select * from reply where seq = #{seq} order by rseq desc
+  	</select>
+  	
+  <!-- 	<select id="selectOne" resultType="com.ncs.vo.ReplyVO">
 		select rseq,rid,rcontent,rregdate,rupdatedate,rexist,seq
 	 	from reply where seq=#{seq} order by rregdate desc
-  </select>
+  	</select> -->
+  
+  	<insert id="insert">
+  	<selectKey keyProperty="rseq" order="BEFORE" resultType="int">
+  		select IFNULL(MAX(rseq),0)+1 as rseq from reply
+  	</selectKey>
+  		insert into reply(rseq,rid,rcontent,seq) values(#{rseq},#{rid},#{rcontent},#{seq})
+   	</insert>
   </mapper>
