@@ -43,13 +43,15 @@ function del() {
 						<a href="#" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
 						<a href="#" class="list-group-item" data-parent="#sidebar">로그아웃</a>
 					</div>
-					<a href="/board/board" class="list-group-item d-inline-block collapsed"
+					<a href="/board/board"
+						class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
 						src="../resources/img/board.svg"><span
 						class="d-none d-md-inline">자유게시판</span>
 					</a> <a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="../resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
+						src="../resources/img/qna.svg"><span
+						class="d-none d-md-inline">Q&A</span>
 					</a> <a href="#search" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar" data-toggle="collapse"
 						aria-expanded="false"> <img style="width: 20px;"
@@ -66,43 +68,84 @@ function del() {
 			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
 				<div class="list-group ml-5" style="max-width: 1080px;">
 					<h5 class="list-group-item active">글 보기</h5>
-						<div class="list-group-item">
-							<form>
-								<div class="form-group">
-									<span class="form-group-item-text">#${get.seq}</span>
-									<span class="form-group-item-text">#${get.id}</span>
-									<span class="form-group-item-text" title="${get.updatedate}">#${get.updatedate}</span>
-									<br>
-									<label>제목</label>
-									<p class="boardTitle">${get.title}</p>
-									<div class="form-group pt-3">
-										<label>내용</label>
-										<p class="boardTitle" style="height: 320px;">${get.content}</p>
-										<a href="/board/boardEdit?seq=${get.seq}&id=${get.id}" class="btn btn-primary">글 수정</a> 
-										<a href="/board/delete?seq=${get.seq}&id=${get.id}" 
-										onclick="return confirm(&#39;정말로 삭제하시겠습니까?&#39;)" class="btn btn-primary">글 삭제</a> 
-										<a href="board" class="btn btn-primary">글 목록</a>
-									</div>
+					<div class="list-group-item">
+						<form>
+							<div class="form-group">
+								<span class="form-group-item-text">#${get.seq}</span> <span
+									class="form-group-item-text">#${get.id}</span> <span
+									class="form-group-item-text" title="${get.updatedate}">#${get.updatedate}</span>
+								<br> <label>제목</label>
+								<p class="boardTitle">${get.title}</p>
+								<div class="form-group pt-3">
+									<label>내용</label>
+									<p class="boardTitle" style="height: 320px;">${get.content}</p>
+									<a href="/board/boardEdit?seq=${get.seq}&id=${get.id}"
+										class="btn btn-primary">글 수정</a> <a
+										href="/board/delete?seq=${get.seq}&id=${get.id}"
+										onclick="return confirm(&#39;정말로 삭제하시겠습니까?&#39;)"
+										class="btn btn-primary">글 삭제</a> <a href="board"
+										class="btn btn-primary">글 목록</a>
 								</div>
-							</form>
-						</div>
-					</div><br><br>
-					<!-- 댓글 -->
-					<div class="list-group ml-5" style="max-width: 1080px;">
+							</div>
+						</form>
+					</div>
+				</div>
+				<br>
+				<br>
+				<!-- 댓글 -->
+				<div class="list-group ml-5" style="max-width: 1080px;">
 					<h5 class="list-group-item" style="background: lightgray;">댓글</h5>
-						<div class="list-group-item">
-							<form>
-								<div class="form-group">
-									<span class="form-group-item-text">#${reply.rid}</span>
-									<span class="form-group-item-text" title="${reply.rregdate}">#${reply.rregdate}</span>
+					<div class="list-group-item">
+						<form>
+							<div class="form-group">
+								<c:if test="${reply.size() > 0}">
+									<c:forEach var="rlist" items="${reply}">
+									<span class="form-group-item-text">#${rlist.rid}</span> <span
+										class="form-group-item-text" title="${rlist.rregdate}">${rlist.rregdate}</span>
 									<br>
 									<div class="form-group pt-3">
-										<p class="boardTitle" style="height: 110px;">#${reply.rcontent}</p>
+										<p class="boardTitle" style="height: 110px;">#${rlist.rcontent}</p>
 									</div>
-								</div>
-							</form>
+								</c:forEach>
+								</c:if>
+							</div>
+						</form>
+					</div>
+				</div><br>
+	 			<button class="btn btn-primary ml-5" data-toggle="modal"
+							data-target="#modal">댓글 달기</button>
+				<div class="modal fade" id="modal" tabindex="-1"
+					aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">댓글 작성</h5>
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="/reply/replyWrite" method="post" onsubmit="return postForm()">
+									<div class="form-group">
+										<label>댓글 내용</label>
+										<textarea class="form-control" name="rcontent" id="rcontent" style="height: 240px;"></textarea>
+									</div>
+									<!--    <div class="form-group">
+                					<label>해시태그</label>
+               						<input type="text" class="form-control">
+              						</div> -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">취소</button>
+										<button type="submit" class="btn btn-primary">작성하기</button>
+										<input type="hidden" name="rid" value="창다이"/>
+										<input type="hidden" name="seq" value="${get.seq}"/>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
+				</div>
 				<footer class="text-center" style="max-width: 920px;">
 					<p>
 						Copyright &copy; 2020 <b>김창대</b> All Rights Reserved.
