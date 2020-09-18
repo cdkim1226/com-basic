@@ -55,11 +55,11 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boardView")
-	public ModelAndView boardView(ModelAndView mv, BoardVO vo, ReplyVO rvo) {
+	public ModelAndView boardView(ModelAndView mv, BoardVO vo) {
 		
-		rvo = replyService.selectOne(rvo);
-		if(rvo != null) {
-			mv.addObject("reply",rvo);
+		List<ReplyVO> rlist = replyService.selectList(vo.getSeq());
+		if(rlist != null) {
+			mv.addObject("reply",rlist);
 		}
 		
 		vo = boardService.selectOne(vo);
