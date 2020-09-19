@@ -18,6 +18,25 @@ function del() {
 		return;
 	}
 } // del()
+
+var replyModify = function (rseq) {
+		$.ajax({
+			type:'Get',
+			url:'/reply/modify',
+			data: {
+				rseq:rseq
+			},
+			success:function(data){
+				$('#rseq-'+data.get.rseq).attr("style","display: none;");
+				$('#text-form-'+data.get.rseq).append(" <textarea name='rcontent' id='rseq-modify-"+ data.get.rseq+"' class='form-group-item-text'>" + data.get.rcontent 
+						+ "</textarea>");
+				$('#modifymodal-'+data.get.rseq).attr("style","display: none;");
+				$('#buttons-edit-'+data.get.rseq).attr("style","");
+				
+			}
+		});
+	
+	}
 </script>
 </head>
 <body>
@@ -100,8 +119,40 @@ function del() {
 							<div class="form-group">
 								<c:if test="${reply.size() > 0}">
 									<c:forEach var="rlist" items="${reply}">
-									<span class="form-group-item-text">#${rlist.rid}</span> <span
-										class="form-group-item-text" title="${rlist.rregdate}">${rlist.rregdate}</span>
+									<span class="form-group-item-text">#${rlist.rid}</span> 
+									<span class="form-group-item-text" title="${rlist.rregdate}">${rlist.rregdate}</span>
+									<a href="#"><button type="button" class="btn btn-light float-right">삭제</button></a>
+										<button class="btn btn-light float-right" data-toggle="modal" data-target="#modifymodal" onclick="replyModify('${rlist.rseq}')">댓글수정</button>
+										
+										<div class="modal fade" id="modifymodal" tabindex="-1"
+											aria-labelledby="modal" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">댓글 수정</h5>
+														<button type="button" class="close" data-dismiss="modal">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body" id="buttons-edit-${rlist.rseq}">
+														<form id="text-form-${rlist.rseq}" method="post" onsubmit="return postForm()">
+															<div class="form-group">
+																<label>댓글 내용</label>
+																<textarea class="form-group-item-text" value="${rlist.rcontent}" style="height: 240px;"></textarea>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary"
+																	data-dismiss="modal">취소</button>
+																<button type="submit" class="btn btn-primary">수정하기</button>
+																<input type="hidden" name="seq" value="${get.seq}"/>
+																<input type="hidden" name="rseq" value="${rlist.rseq}"/>
+																<input type="hidden" name="rid" value="${rlist.rid}">
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
 									<br>
 									<div class="form-group pt-3">
 										<p class="boardTitle" style="height: 110px;">#${rlist.rcontent}</p>
@@ -111,7 +162,9 @@ function del() {
 							</div>
 						</form>
 					</div>
-				</div><br>
+				</div>
+				
+				<br>
 	 			<button class="btn btn-primary ml-5" data-toggle="modal"
 							data-target="#modal">댓글 달기</button>
 				<div class="modal fade" id="modal" tabindex="-1"
@@ -146,6 +199,7 @@ function del() {
 						</div>
 					</div>
 				</div>
+			
 				<footer class="text-center" style="max-width: 920px;">
 					<p>
 						Copyright &copy; 2020 <b>김창대</b> All Rights Reserved.
