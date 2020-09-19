@@ -28,5 +28,20 @@ public class ReplyServiceImpl implements ReplyService {
 	public List<ReplyVO> selectList(int seq) {
 		return replyMapper.selectList(seq);
 	}
+
+	@Override
+	public int update(ReplyVO replyVO) {
+		return replyMapper.update(replyVO);
+	}
+
+	@Override
+	public int modify(ReplyVO replyVO) {
+		return replyMapper.modify(replyVO);
+	}
+
+	@Override
+	public ReplyVO get(ReplyVO replyVO) {
+		return replyMapper.get(replyVO);
+	}
 	
 }

@@ -20,4 +20,12 @@
   	</selectKey>
   		insert into reply(rseq,rid,rcontent,seq) values(#{rseq},#{rid},#{rcontent},#{seq})
    	</insert>
+   	
+   	<update id="modify">
+   		update reply set rcontent = #{rcontent} where rseq = #{rseq}
+   	</update>
+   	
+   	<select id="get" resultType="com.ncs.vo.ReplyVO">
+   		select * from reply where rseq = #{rseq}
+   	</select>
   </mapper>
