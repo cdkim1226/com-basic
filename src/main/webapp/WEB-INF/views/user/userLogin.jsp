@@ -10,6 +10,43 @@
 <title>커뮤니티 웹 사이트</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/comcustom.css">
+<script>
+// ** Login시 id, password 입력자료의 무결성 점검
+// => jQuery 의 focusout , submit
+// => 1) 전역변수정의  
+//    2) 각 InputTag의 focusout 이벤트핸들러
+//    3) submit 처리
+
+// 1) 전역변수정의
+	var iCheck=false;
+	var pCheck=false;
+// 2) 각 InputTag의 focusout 이벤트핸들러	
+$(function() {
+	$('#uesrid').focus();
+	$('#userid').focusout(function() {
+	 	iCheck=idCheck();
+		//if () iCheck=true;
+		//else iCheck=false;
+	}); // id_focusout
+	
+	$('#userpw').focusout(function() {
+		pCheck=pwCheck();
+	}); // password_focusout
+}); // ready
+
+//3) submit 처리
+function inCheck() {
+	// input Tag의 value에  default값을 준경우 focusout 없이 submit 누르는 경우 
+	if (iCheck==false) {iCheck=idCheck() };
+	if (pCheck==false) {pCheck=pwCheck() };
+	
+	if (iCheck==true && pCheck==true) {
+		  return true;
+	}else return false;
+	
+} //inCheck 
+
+</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -64,15 +101,15 @@
 							로그인
 						</h5>
 							<div class="list-group-item">
-								<form action="/userLogin" method='POST'>
+								<form action="/user/userLogin" method='POST'>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="아이디 입력">
+										<input type="text" name="userid" id="userid" class="form-control" placeholder="아이디 입력">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control"
+										<input type="password" name="userpw" id="userpw" class="form-control"
 											placeholder="비밀번호 입력">
 									</div>
-									<button type="submit" class="btn btn-primary">로그인</button>
+									<button type="submit" class="btn btn-primary" onclick="return inCheck()">로그인</button>
 								</form>
 							</div>
 					</div>
