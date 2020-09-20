@@ -13,4 +13,8 @@ public interface UserService {
 	int emailDuplicate(UserVO vo);
 
 	UserVO read(String userid);
+	
+	int update(UserVO userVO);
+	
+	UserVO selectOne(UserVO userVO);
 }
