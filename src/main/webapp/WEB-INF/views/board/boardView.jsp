@@ -19,24 +19,7 @@ function del() {
 	}
 } // del()
 
-var replyModify = function (rseq) {
-		$.ajax({
-			type:'Get',
-			url:'/reply/modify',
-			data: {
-				rseq:rseq
-			},
-			success:function(data){
-				$('#rseq-'+data.get.rseq).attr("style","display: none;");
-				$('#text-form-'+data.get.rseq).append(" <textarea name='rcontent' id='rseq-modify-"+ data.get.rseq+"' class='form-group-item-text'>" + data.get.rcontent 
-						+ "</textarea>");
-				$('#modifymodal-'+data.get.rseq).attr("style","display: none;");
-				$('#buttons-edit-'+data.get.rseq).attr("style","");
-				
-			}
-		});
-	
-	}
+
 </script>
 </head>
 <body>
@@ -112,58 +95,29 @@ var replyModify = function (rseq) {
 				<br>
 				<br>
 				<!-- 댓글 -->
-				<div class="list-group ml-5" style="max-width: 1080px;">
-					<h5 class="list-group-item" style="background: lightgray;">댓글</h5>
-					<div class="list-group-item">
-						<form>
-							<div class="form-group">
-								<c:if test="${reply.size() > 0}">
-									<c:forEach var="rlist" items="${reply}">
-									<span class="form-group-item-text">#${rlist.rid}</span> 
-									<span class="form-group-item-text" title="${rlist.rregdate}">${rlist.rregdate}</span>
-									<a href="#"><button type="button" class="btn btn-light float-right">삭제</button></a>
-										<button class="btn btn-light float-right" data-toggle="modal" data-target="#modifymodal" onclick="replyModify('${rlist.rseq}')">댓글수정</button>
-										
-										<div class="modal fade" id="modifymodal" tabindex="-1"
-											aria-labelledby="modal" aria-hidden="true">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title">댓글 수정</h5>
-														<button type="button" class="close" data-dismiss="modal">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													<div class="modal-body" id="buttons-edit-${rlist.rseq}">
-														<form id="text-form-${rlist.rseq}" method="post" onsubmit="return postForm()">
-															<div class="form-group">
-																<label>댓글 내용</label>
-																<textarea class="form-group-item-text" value="${rlist.rcontent}" style="height: 240px;"></textarea>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-secondary"
-																	data-dismiss="modal">취소</button>
-																<button type="submit" class="btn btn-primary">수정하기</button>
-																<input type="hidden" name="seq" value="${get.seq}"/>
-																<input type="hidden" name="rseq" value="${rlist.rseq}"/>
-																<input type="hidden" name="rid" value="${rlist.rid}">
-															</div>
-														</form>
-													</div>
-												</div>
-											</div>
-										</div>
-									<br>
-									<div class="form-group pt-3">
-										<p class="boardTitle" style="height: 110px;">#${rlist.rcontent}</p>
+				<c:if test="${reply.size() > 0}">
+					<c:forEach var="rlist" items="${reply}">
+						<div class="col-md-9 list-group ml-5" style="max-width: 1080px;">
+							<h5 class="list-group-item" style="background: lightgray;">댓글</h5>
+							<div class="list-group-item">
+								<form>
+									<div class="form-group">
+										<span class="form-group-item-text">#${rlist.rid}</span> 
+										<span class="form-group-item-text" title="${rlist.rregdate}">${rlist.rregdate}</span>
 									</div>
-								</c:forEach>
-								</c:if>
+									<fieldset class="form" id="bottom-text-form-${rlist.rseq}">
+									<article id="note-text-${rlist.rseq}"
+											 class="list-group-item-text note-text">
+										${rlist.rcontent }
+									</article>									
+									</fieldset>
+									<button type="button" class="btn btn-light float-right">삭제</button>
+									<button class="btn btn-light float-right" data-target="modal" data-toggle="#modifyModal">댓글수정</button>
+								</form>
 							</div>
-						</form>
-					</div>
-				</div>
-				
+						</div>
+					</c:forEach>
+				</c:if>
 				<br>
 	 			<button class="btn btn-primary ml-5" data-toggle="modal"
 							data-target="#modal">댓글 달기</button>
@@ -199,6 +153,40 @@ var replyModify = function (rseq) {
 						</div>
 					</div>
 				</div>
+				<c:forEach var="rlist" items="${reply}">
+				<div class="modal fade" id="modifyModal" tabindex="-1"
+					aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">댓글 수정</h5>
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="/reply/modify" method="post" onsubmit="return postForm()">
+									<div class="form-group">
+										<label>댓글 내용</label>
+										<textarea class="form-control" name="rcontent" id="rcontent" style="height: 240px;"></textarea>
+									</div>
+									<!--    <div class="form-group">
+                					<label>해시태그</label>
+               						<input type="text" class="form-control">
+              						</div> -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">취소</button>
+										<button type="submit" class="btn btn-primary">수정하기</button>
+										<input type="hidden" name="rid" value="창다이"/>
+										<input type="hidden" name="rseq" value="${rlist.rseq}"/>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				</c:forEach>
 			
 				<footer class="text-center" style="max-width: 920px;">
 					<p>
