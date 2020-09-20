@@ -39,4 +39,13 @@
 		userid, userpw, userpwcheck, enabled, email, username, nickname, sex
 		from user where userid = #{userid}
 	</select>
+	
+	<update id="update">
+		update user set userpw=#{userpw}, userpwcheck=#{userpwcheck}, nickname=#{nickname}, sex=#{sex}
+		where userid=#{userid}
+	</update>
+	
+	<select id="selectOne" resultType="com.ncs.vo.UserVO">
+		select * from user where userid=#{userid}
+	</select>
   </mapper>
