@@ -38,6 +38,16 @@ public class UserServiceImpl implements UserService {
 		return userMapper.emailDuplicate(vo);
 	}
 
+	@Override
+	public int update(UserVO userVO) {
+		return userMapper.update(userVO);
+	}
+
+	@Override
+	public UserVO selectOne(UserVO userVO) {
+		return userMapper.selectOne(userVO);
+	}
+
 	
 	
 }
