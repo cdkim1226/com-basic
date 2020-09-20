@@ -1,6 +1,7 @@
 package com.ncs.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,17 +19,29 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/userLoginf")
+	@RequestMapping(value = "/userLogin", method = RequestMethod.GET)
 	public ModelAndView userLogin(ModelAndView mv) {
 		mv.setViewName("user/userLogin");
 		return mv;
 	}
 	
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-	public String userLogin(UserVO vo) {
+	public ModelAndView userLogin(UserVO vo, HttpServletRequest request, ModelAndView mv) {
+		String password = vo.getUserpw();
+		vo = userService.read(vo.getUserid());
 		System.out.println(vo);
-		userService.read(vo.getUserid());
-		return "redirect:/home";
+		if(vo != null) {
+			if(vo.getUserpw().equals(password)) {
+				request.getSession().setAttribute("logID", vo.getUserid());
+				request.getSession().setAttribute("logName",vo.getUsername());
+				mv.setViewName("/home");
+			}else {
+				mv.addObject("message","Password 오류");
+			}
+		}else {
+			mv.addObject("message","ID 오류");
+		}
+		return mv;
 	}
 	
 	@RequestMapping(value = "/userLogout", method=RequestMethod.GET)
@@ -37,9 +50,35 @@ public class UserController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/userDetail")
+	public ModelAndView UserDetail(HttpServletRequest request, ModelAndView mv, UserVO vo) {
+		String userid="";
+		HttpSession session = request.getSession(false);
+		if(session != null && session.getAttribute("logID") != null) {
+			userid = (String)session.getAttribute("logID");
+			
+		}
+		vo.setUserid(userid);
+		vo = userService.selectOne(vo);
+		if(vo != null) {
+			mv.addObject("get",vo);
+			mv.setViewName("user/userDetail");
+		}
+		return mv;
+	}
+	
 	@RequestMapping(value = "/userEdit", method=RequestMethod.GET)
-	public ModelAndView userEdit(ModelAndView mv) {
+	public ModelAndView getEdit(ModelAndView mv) {
 		mv.setViewName("user/userEdit");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/userEdit", method = RequestMethod.POST)
+	public ModelAndView postEdit(UserVO vo, ModelAndView mv) {
+		if(userService.update(vo) > 0) {
+			mv.addObject("get",vo);
+			mv.setViewName("home");
+		}
 		return mv;
 	}
 	
@@ -51,7 +90,7 @@ public class UserController {
 	public String postJoin(UserVO vo, HttpServletRequest request) {
 		userService.join(vo);
 		System.out.println(vo);
-		return "redirect:/home";
+		return "redirect:/user/userLogin";
 		
 	}
 	
