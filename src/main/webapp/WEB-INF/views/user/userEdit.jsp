@@ -8,8 +8,8 @@
 <meta name="viewport"
 	content="width-device-width, initial-scale=1, shrink-to-fit=no">
 <title>커뮤니티 웹 사이트</title>
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/comcustom.css">
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/comcustom.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -19,32 +19,32 @@
 				<div class="list-group border-0 card text-center text-md-left">
 					<a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="resources/img/home.svg"><span
+						src="../resources/img/home.svg"><span
 						class="d-none d-md-inline">메인</span>
 					</a> <a href="#usermenu"
 						class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar" data-toggle="collapse"
 						aria-expanded="false"> <img style="width: 20px;"
-						src="resources/img/user.svg"><span
+						src="../resources/img/user.svg"><span
 						class="d-none d-md-inline">회원관리</span>
 					</a>
 					<div class="collapse" id="usermenu">
-						<a href="userJoin" class="list-group-item" data-parent="#sidebar">회원가입</a>
-						<a href="userLogin" class="list-group-item" data-parent="#sidebar">로그인</a>
-						<a href="userEdit" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
-						<a href="userLogout" class="list-group-item" data-parent="#sidebar">로그아웃</a>
+						<a href="/user/userJoin" class="list-group-item" data-parent="#sidebar">회원가입</a>
+						<a href="/user/userLogin" class="list-group-item" data-parent="#sidebar">로그인</a>
+						<a href="/user/userEdit" class="list-group-item" data-parent="#sidebar">회원정보수정</a>
+						<a href="/user/userLogout" class="list-group-item" data-parent="#sidebar">로그아웃</a>
 					</div>
 					<a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="resources/img/board.svg"><span
+						src="../resources/img/board.svg"><span
 						class="d-none d-md-inline">자유게시판</span>
 					</a> <a href="#" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar"> <img style="width: 20px;"
-						src="resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
+						src="../resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
 					</a> <a href="#search" class="list-group-item d-inline-block collapsed"
 						data-parent="#sidebar" data-toggle="collapse"
 						aria-expanded="false"> <img style="width: 20px;"
-						src="resources/img/search.svg"><span
+						src="../resources/img/search.svg"><span
 						class="d-none d-md-inline">검색</span>
 					</a>
 					<div class="collapse" id="search">
@@ -59,34 +59,37 @@
 				<br>
 				<div class="col-md-9 ml-5">
 					<div class="list-group">
-						<h5 class="list-group-item active">
+						<h2 class="list-group-item active">
 							회원 정보 수정
-							</h2>
+						</h2>
 							<div class="list-group-item">
-								<form>
+								<form action="/user/userEdit" method="post">
 									<div class="form-group">
-										<input disabled="true" type="text" class="form-control"
-											placeholder="아이디 입력">
+										<input disabled="true" type="text" name="userid" class="form-control"
+											placeholder="아이디 입력" value="${get.userid}">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control"
-											placeholder="비밀번호 입력">
+										<input type="password" name="userpw" class="form-control"
+											placeholder="새 비밀번호 입력">
 									</div>
 									<div class="form-group">
-										<input type="password" class="form-control"
-											placeholder="비밀번호 확인">
+										<input type="password" name="userpwcheck" class="form-control"
+											placeholder="새 비밀번호 확인">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="이름 입력">
+										<input type="text" disabled="true" name="username" class="form-control" 
+										placeholder="이름 입력" value="${get.username}">
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" placeholder="이메일 입력">
+										<input type="email" disabled="true" name="email" class="form-control" 
+										placeholder="이메일 입력" value="${get.email}">
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="닉네임 입력">
+										<input type="text" name="nickname" class="form-control" 
+										placeholder="닉네임 입력" value="${get.email}">
 									</div>
 									<div class="form-group">
-										<select class="form-control">
+										<select class="form-control" name="sex">
 											<option selected>성별</option>
 											<option>남성</option>
 											<option>여성</option>
@@ -103,8 +106,8 @@
 			</main>
 		</div>
 	</div>
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/jquery.min.js"></script>
+	<script src="../resources/js/popper.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
 </body>
 </html>
