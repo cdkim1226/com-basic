@@ -10,6 +10,30 @@
 <title>커뮤니티 웹 사이트</title>
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/comcustom.css">
+<script>
+$('#userEdit').click(function(){
+	$.ajax({
+		url: '/user/userEdit',
+		type: "Post",
+		data:{
+			userid: $('#userid').val(),
+			nickname: $('#nickname').val(),
+			email: $('#email').val(),
+			sex: $('#sex').val(),
+			userpw: $('#userpw').val(),
+			userpwcheck: $('#userpwcheck').val(),
+			username: $('#username').val(),
+		},
+		success: function(data){
+			if(data.code == 0){
+				alert('수정 성공 했습니다');
+			}else if(data.code == 1){
+				alert('수정 실패 했습니다');
+			}
+		}
+	});
+});
+</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -62,42 +86,62 @@
 						<h2 class="list-group-item active">
 							회원 정보 수정
 						</h2>
-							<div class="list-group-item">
-								<form action="/user/userEdit" method="post">
-									<div class="form-group">
-										<input disabled="true" type="text" name="userid" class="form-control"
-											placeholder="아이디 입력" value="${get.userid}">
-									</div>
-									<div class="form-group">
-										<input type="password" name="userpw" class="form-control"
-											placeholder="새 비밀번호 입력">
-									</div>
-									<div class="form-group">
-										<input type="password" name="userpwcheck" class="form-control"
-											placeholder="새 비밀번호 확인">
-									</div>
-									<div class="form-group">
-										<input type="text" disabled="true" name="username" class="form-control" 
+						<div class="list-group-item">
+						<form action="/user/userEdit" method="post">
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">아이디</span>
+								</div>	
+								<div class="col-md-9">
+									<input type="text" disabled="true" name="userid" id="userid" class="form-control"
+											 value="${get.userid}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">이름</span>
+								</div>	
+								<div class="col-md-9">
+									<input type="text" disabled="true" name="username" class="form-control" 
 										placeholder="이름 입력" value="${get.username}">
-									</div>
-									<div class="form-group">
-										<input type="email" disabled="true" name="email" class="form-control" 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">이메일</span>
+								</div>	
+								<div class="col-md-9">
+									<input type="email" name="email" id="email" class="form-control" 
 										placeholder="이메일 입력" value="${get.email}">
-									</div>
-									<div class="form-group">
-										<input type="text" name="nickname" class="form-control" 
-										placeholder="닉네임 입력" value="${get.email}">
-									</div>
-									<div class="form-group">
-										<select class="form-control" name="sex">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">닉네임</span>
+								</div>	
+								<div class="col-md-9">
+									<input type="text" name="nickname" id="nickname" class="form-control" 
+										placeholder="닉네임 입력" value="${get.nickname}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">성별</span>
+								</div>	
+								<div class="col-md-9">
+									<select class="form-control" name="sex" id="sex">
 											<option selected>성별</option>
 											<option>남성</option>
 											<option>여성</option>
 										</select>
-									</div>
-									<button type="submit" class="btn btn-primary">수정하기</button>
-								</form>
-							</div>
+								</div>
+							</div><br><br>
+							<input type="hidden" id="userpw" value="${get.userpw}">
+							<input type="hidden" id="userpwcheck" value="${get.userpwcheck}">
+							<button type="submit" id="userEdit" class="btn btn-primary float-right">수정하기</button>
+							<a href="/user/userPwChange" class="btn btn-primary float-left">비밀번호 변경</a>
+							</form>
+						</div>
 					</div>
 				</div>
 				<footer class="text-center" style="max-width: 1080px;">
