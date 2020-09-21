@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -68,18 +69,26 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/userEdit", method=RequestMethod.GET)
-	public ModelAndView getEdit(ModelAndView mv) {
+	public ModelAndView getEdit(ModelAndView mv, HttpServletRequest request) {
+		UserVO vo = new UserVO();
+		String userid = (String)request.getSession().getAttribute("logID");
+		vo.setUserid(userid);
+		vo = userService.selectOne(vo);
+		mv.addObject("get",vo);
 		mv.setViewName("user/userEdit");
 		return mv;
 	}
 	
 	@RequestMapping(value = "/userEdit", method = RequestMethod.POST)
-	public ModelAndView postEdit(UserVO vo, ModelAndView mv) {
+	public ModelAndView postEdit(UserVO vo, ModelAndView mv, HttpServletRequest request) {
+		
 		if(userService.update(vo) > 0) {
-			mv.addObject("get",vo);
-			mv.setViewName("home");
+			mv.addObject("code", 0);
+		}else {
+			mv.addObject("code", 1);
 		}
-		return mv;
+			mv.setViewName("jsonView");
+			return mv;
 	}
 	
 	@RequestMapping(value = "/userJoin", method= RequestMethod.GET)
