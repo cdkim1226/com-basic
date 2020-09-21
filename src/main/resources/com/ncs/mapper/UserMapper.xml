@@ -41,7 +41,7 @@
 	</select>
 	
 	<update id="update">
-		update user set userpw=#{userpw}, userpwcheck=#{userpwcheck}, nickname=#{nickname}, sex=#{sex}
+		update user set email=#{email}, nickname=#{nickname}, sex=#{sex}
 		where userid=#{userid}
 	</update>
 	
