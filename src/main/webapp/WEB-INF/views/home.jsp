@@ -43,6 +43,10 @@
               data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
               <img style="width: 20px;" src="../resources/img/search.svg"><span class="d-none d-md-inline">검색</span>
             </a>
+            <a href="#" class="list-group-item d-inline-block collapsed"
+              data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
+              <img style="width: 20px;" src="../resources/img/setting.svg"><span class="d-none d-md-inline">관리자 페이지</span>
+            </a>
             <div class="collapse" id="search">
               <div class="input-group p-2" style="background-color: #1c1c1c;">
                 <input type="text" class="form-control" placeholder="내용을 입력하세요">
