@@ -57,34 +57,62 @@
 			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
 				<h4>회원 정보</h4>
 				<br>
-				<div class="col-md-9 ml-5">
+				<div class="col-md-7 ml-5">
 					<div class="list-group">
 						<h2 class="list-group-item active">
 							회원 정보
 						</h2>
 						<div class="list-group-item">
-								<div class="form-group">
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">아이디</span>
+								</div>	
+								<div class="col-md-9">
 									<span class="form-control">${get.userid}</span>
 								</div>
-								<div class="form-group">
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">이름</span>
+								</div>	
+								<div class="col-md-9">
 									<span class="form-control">${get.username}</span>
 								</div>
-								<div class="form-group">
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">이메일</span>
+								</div>	
+								<div class="col-md-9">
 									<span class="form-control">${get.email}</span>
 								</div>
-								<div class="form-group">
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">닉네임</span>
+								</div>	
+								<div class="col-md-9">
 									<span class="form-control">${get.nickname}</span>
 								</div>
-								<div class="form-group">
+							</div>
+							<div class="row">
+								<div class="col-md-3 text-center">
+									<span class="form-control bg-dark" style="color: white;">성별</span>
+								</div>	
+								<div class="col-md-9">
 									<span class="form-control">${get.sex}</span>
 								</div>
+							</div>
 						</div>
-					</div>
+					</div><br><br>
+					<div style="max-width: 1080px;">
+            		<a href="/user/userEdit" class="btn btn-primary float-right">회원정보수정</a>
+          			</div>
 				</div>
-				<footer class="text-center" style="max-width: 1080px;">
+			</main>
+			<footer class="mt-4 p-5 text-center">
 					<p>Copyright &copy; 2020 김창대 All Rights Reserved.</p>
 				</footer>
-			</main>
 		</div>
 	</div>
 	<script src="../resources/js/jquery.min.js"></script>
