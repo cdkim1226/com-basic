@@ -15,7 +15,7 @@
       <div class="row d-flex d-md-block flex-nowrap wrapper">
         <nav class="col-md-3 float-left col-1 p1-0 pr-0 collapse width show" id="sidebar">
           <div class="list-group border-0 card text-center text-md-left">
-            <a href="home" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+            <a href="/" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="../resources/img/home.svg"><span class="d-none d-md-inline">메인</span>
             </a>
             <a href="#usermenu" class="list-group-item d-inline-block collapsed"
@@ -39,17 +39,16 @@
             <a href="/qna/qna" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="../resources/img/qna.svg"><span class="d-none d-md-inline">Q&A</span>
             </a>
-            <a href="#search" class="list-group-item d-inline-block collapsed"
+           <!--  <a href="#search" class="list-group-item d-inline-block collapsed"
               data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
               <img style="width: 20px;" src="../resources/img/search.svg"><span class="d-none d-md-inline">검색</span>
-            </a>
+            </a> 
             <div class="collapse" id="search">
               <div class="input-group p-2" style="background-color: #1c1c1c;">
                 <input type="text" class="form-control" placeholder="내용을 입력하세요">
               </div>
-            </div>
-            <a href="#" class="list-group-item d-inline-block collapsed"
-              data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
+            </div> -->
+             <a href="manager/dashBoard" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="../resources/img/setting.svg"><span class="d-none d-md-inline">관리자 페이지</span>
             </a>
           </div>
