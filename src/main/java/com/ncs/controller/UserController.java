@@ -1,8 +1,11 @@
 package com.ncs.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -45,10 +48,10 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/userLogout", method=RequestMethod.GET)
-	public ModelAndView userLogout(ModelAndView mv) {
-		mv.setViewName("user/userLogout");
-		return mv;
+	@RequestMapping(value = "/userLogout", method = {RequestMethod.GET, RequestMethod.POST})
+	public String userLogout(HttpSession session) throws IOException {
+		session.invalidate();
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/userDetail")
@@ -68,11 +71,10 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/userEdit", method=RequestMethod.GET)
-	public ModelAndView getEdit(ModelAndView mv, HttpServletRequest request) {
-		UserVO vo = new UserVO();
-		String userid = (String)request.getSession().getAttribute("logID");
-		vo.setUserid(userid);
+	@RequestMapping(value = "/userEditf", method=RequestMethod.GET)
+	public ModelAndView getEdit(HttpServletRequest request, ModelAndView mv, UserVO vo) {
+		String id = (String)request.getSession().getAttribute("logID");
+		vo.setUserid(id);
 		vo = userService.selectOne(vo);
 		mv.addObject("get",vo);
 		mv.setViewName("user/userEdit");
@@ -80,15 +82,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/userEdit", method = RequestMethod.POST)
-	public ModelAndView postEdit(UserVO vo, ModelAndView mv, HttpServletRequest request) {
-		
+	public ModelAndView postEdit(HttpServletRequest request, UserVO vo, ModelAndView mv) {
 		if(userService.update(vo) > 0) {
+			System.out.println("업데이트성공"+vo);
 			mv.addObject("code", 0);
 		}else {
+			System.out.println("업데이트실패"+vo);
 			mv.addObject("code", 1);
 		}
-			mv.setViewName("jsonView");
-			return mv;
+		mv.setViewName("jsonView");
+		return mv;
 	}
 	
 	@RequestMapping(value = "/userJoin", method= RequestMethod.GET)
