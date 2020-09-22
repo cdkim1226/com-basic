@@ -41,11 +41,11 @@
 	</select>
 	
 	<update id="update">
-		update user set email=#{email}, nickname=#{nickname}, sex=#{sex}
-		where userid=#{userid}
+		update user set email = #{email}, nickname = #{nickname}, sex = #{sex}
+		where userid = #{userid}
 	</update>
 	
 	<select id="selectOne" resultType="com.ncs.vo.UserVO">
-		select * from user where userid=#{userid}
+		select * from user where userid = #{userid}
 	</select>
   </mapper>
