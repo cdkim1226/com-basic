@@ -132,22 +132,22 @@
 						<div class="list-group-item">
 							<div class="row m-1">
 								<div class="col-md-3 text-center bg-light p-5">
-									<img src="resources/img/event.svg">
+									<img src="../resources/img/event.svg">
 									<h3>205</h3>
 									<h5>이벤트</h5>
 								</div>
 								<div class="col-md-3 text-center bg-light p-5">
-									<img src="resources/img/edit.svg">
+									<img src="../resources/img/edit.svg">
 									<h3>98</h3>
 									<h5>블로그</h5>
 								</div>
 								<div class="col-md-3 text-center bg-light p-5">
-									<img src="resources/img/user.svg">
+									<img src="../resources/img/user.svg">
 									<h3>1054</h3>
 									<h5>회원</h5>
 								</div>
 								<div class="col-md-3 text-center bg-light p-5">
-									<img src="resources/img/chart.svg">
+									<img src="../resources/img/chart.svg">
 									<h3>102030</h3>
 									<h5>방문자</h5>
 								</div>
@@ -167,13 +167,13 @@
 	<footer class="bg-primary mt-4 p-5 text-center" style="color: #ffffff;">
 		Copyright &copy; 2020 김창대 All Rights Reserved. </footer>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
-	<script src="resources/js/jquery.min.js"></script>
+	<script src="../resources/js/jquery.min.js"></script>
 	<!-- Popper 자바스크립트 추가하기 -->
-	<script src="resources/js/popper.min.js"></script>
+	<script src="../resources/js/popper.min.js"></script>
 	<!-- 부트스트랩 자바스크립트 추가하기 -->
-	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
 	<!-- MDB 라이브러리 자바스크립트 추가하기 -->
-	<script src="resources/js/mdb.min.js"></script>
+	<script src="../resources/js/mdb.min.js"></script>
 	<script>
 		//line
 		var ctxL = document.getElementById("lineChart").getContext('2d');
