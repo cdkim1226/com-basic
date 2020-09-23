@@ -60,7 +60,7 @@ function del() {
                 <input type="text" class="form-control" placeholder="내용을 입력하세요">
               </div>
             </div> -->
-            <a href="manager/dashBoard" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+            <a href="" id="dashBoard" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <img style="width: 20px;" src="../resources/img/setting.svg"><span class="d-none d-md-inline">관리자 페이지</span>
             </a>
           </div>
@@ -197,5 +197,6 @@ function del() {
 	<script src="../resources/js/jquery.min.js"></script>
 	<script src="../resources/js/popper.min.js"></script>
 	<script src="../resources/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../resources/script/managerPageBtn.js"></script>
 </body>
 </html>
