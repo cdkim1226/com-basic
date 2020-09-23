@@ -24,7 +24,7 @@
 		<div class="collapse navbar-collapse justify-content-between"
 			id="navbar">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="home">대시보드</a> <a
+				<a class="nav-item nav-link active" href="dashBoard">대시보드</a> <a
 					class="nav-item nav-link" href="event">이벤트</a> <a
 					class="nav-item nav-link" href="blog">블로그</a> <a
 					class="nav-item nav-link" href="user">회원</a>
@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-sm-9 info">
 					<h4>
-						<img src="resources/img/setting.svg"> 대시보드<small>페이지를 관리하세요.</small>
+						<img src="../resources/img/setting.svg"> 대시보드<small>페이지를 관리하세요.</small>
 					</h4>
 				</div>
 				<div class="col-sm-3">
@@ -70,13 +70,10 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="list-group">
-						<a href="home" class="list-group-item active">대시보드</a> <a
-							href="event" class="list-group-item">이벤트 관리<span
-							class="badge badge-secondary">25</span></a> <a href="./blog.html"
-							class="list-group-item">블로그 관리<span
-							class="badge badge-secondary">12</span></a> <a href="./user.html"
-							class="list-group-item">회원 관리<span
-							class="badge badge-secondary">30</span></a>
+						<a href="home" class="list-group-item active">대시보드</a> 
+						<a href="event" class="list-group-item">이벤트 관리<span class="badge badge-secondary">25</span></a> 
+						<a href="./blog.html" class="list-group-item">블로그 관리<span class="badge badge-secondary">12</span></a> 
+						<a href="./user.html" class="list-group-item">회원 관리<span class="badge badge-secondary">30</span></a>
 					</div>
 					<div class="p-2 my-2">
 						<h5 class="mt-2">CPU 점유율</h5>
