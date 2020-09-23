@@ -9,9 +9,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- 부트스트랩 css 추가하기 -->
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <!-- 커스텀 css 추가하기 -->
-<link rel="stylesheet" href="resources/css/custom.css">
+<link rel="stylesheet" href="../resources/css/custom.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -40,7 +40,7 @@
 			<div class="row">
 				<div class="col-sm-9 info">
 					<h4>
-						<img src="resources/img/userSmall.svg"> 회원<small>페이지를 관리하세요.</small>
+						<img src="../resources/img/userSmall.svg"> 회원<small>페이지를 관리하세요.</small>
 					</h4>
 				</div>
 				<div class="col-sm-3">
@@ -184,13 +184,13 @@
 	<footer class="bg-primary mt-4 p-5 text-center" style="color: #ffffff;">
 		Copyright &copy; 2020 김창대 All Rights Reserved. </footer>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
-	<script src="resources/js/jquery.min.js"></script>
+	<script src="../resources/js/jquery.min.js"></script>
 	<!-- Popper 자바스크립트 추가하기 -->
-	<script src="resources/js/popper.min.js"></script>
+	<script src="../resources/js/popper.min.js"></script>
 	<!-- 부트스트랩 자바스크립트 추가하기 -->
-	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
 	<!-- MDB 라이브러리 자바스크립트 추가하기 -->
-	<script src="resources/js/mdb.min.js"></script>
+	<script src="../resources/js/mdb.min.js"></script>
 	<script>
 		//radar
 		var ctxR = document.getElementById("radarChart").getContext('2d');
