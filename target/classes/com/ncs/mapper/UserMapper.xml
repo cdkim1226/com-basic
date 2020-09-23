@@ -17,6 +17,7 @@
 		<result property="outdate" column="outdate" />
 		<result property="exist" column="exist" />
 	</resultMap>
+	
   	<insert id="join">
   		insert into user(userid,userpw,userpwcheck,email,username,nickname,sex)
   		values(#{userid},#{userpw},#{userpwcheck},#{email},#{username},#{nickname},#{sex})
@@ -48,4 +49,9 @@
 	<select id="selectOne" resultType="com.ncs.vo.UserVO">
 		select * from user where userid = #{userid}
 	</select>
+	
+	<update id="delete">
+		update user set enabled = '0' where userid = ${userid}
+	</update>
+	
   </mapper>
