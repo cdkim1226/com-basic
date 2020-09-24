@@ -29,15 +29,19 @@ public class ReplyController {
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String postModify(ReplyVO rvo) {
-		replyService.modify(rvo);
-		return "redirect:/board/boardView?seq="+rvo.getSeq();
+	public ModelAndView postModify(ModelAndView mv,ReplyVO rvo) {
+		
+		if(replyService.modify(rvo) > 0) {
+			mv.setViewName("redirect:/board/boardView?seq="+rvo.getSeq());
+			System.out.println("댓글수정"+rvo);
+		}else {
+			System.out.println("댓글수정실패"+rvo);
+		}
+		return mv;
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public ModelAndView getModify(ModelAndView mv, ReplyVO rvo) {
-		mv.addObject("get",replyService.get(rvo));
-		mv.setViewName("jsonView");
-		return mv;
+		return mv.addObject("reply", replyService.get(rvo));
 	}
 }
