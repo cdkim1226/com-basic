@@ -116,7 +116,7 @@ $('#updatef').click(function(){
 						</div>
 					</div><br><br>
 					<div style="max-width: 1080px;">
-            		<a href="/user/userEditf" class="btn btn-primary float-right">회원정보수정</a>
+            		<a href="/user/userEdit?userid=${get.userid}" class="btn btn-primary float-right">회원정보수정</a>
           			</div>
 				</div>
 			</main>
