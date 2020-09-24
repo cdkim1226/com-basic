@@ -110,10 +110,43 @@ function del() {
 									</article>									
 									</fieldset>
 									<button type="button" class="btn btn-light float-right">삭제</button>
-									<button class="btn btn-light float-right" data-target="modal" data-toggle="#modifyModal">댓글수정</button>
+									<a href="/reply/modify?rseq=${rlist.rseq}" class="btn btn-light float-right" data-toggle="modal" data-target="#modifyModal">댓글수정</a>
 								</form>
 							</div>
 						</div>
+						<div class="modal fade" id="modifyModal" tabindex="-1"
+					aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">댓글 수정</h5>
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="/reply/modify" method="post" onsubmit="return postForm()">
+									<div class="form-group">
+										<label>댓글 내용</label>
+										<textarea class="form-control" name="rcontent" id="rcontent" style="height: 240px;">${rlist.rcontent}</textarea>
+									</div>
+									<!--    <div class="form-group">
+                					<label>해시태그</label>
+               						<input type="text" class="form-control">
+              						</div> -->
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">취소</button>
+										<button type="submit" class="btn btn-primary">수정하기</button>
+										<input type="hidden" name="rid" value="창다이"/>
+										<input type="hidden" name="rseq" value="${rlist.rseq}"/>
+										<input type="hidden" name="seq" value="${rlist.seq}"/>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 					</c:forEach>
 				</c:if>
 				<br>
@@ -151,40 +184,6 @@ function del() {
 						</div>
 					</div>
 				</div>
-				<c:forEach var="rlist" items="${reply}">
-				<div class="modal fade" id="modifyModal" tabindex="-1"
-					aria-labelledby="modal" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">댓글 수정</h5>
-								<button type="button" class="close" data-dismiss="modal">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form action="/reply/modify" method="post" onsubmit="return postForm()">
-									<div class="form-group">
-										<label>댓글 내용</label>
-										<textarea class="form-control" name="rcontent" id="rcontent" style="height: 240px;"></textarea>
-									</div>
-									<!--    <div class="form-group">
-                					<label>해시태그</label>
-               						<input type="text" class="form-control">
-              						</div> -->
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">취소</button>
-										<button type="submit" class="btn btn-primary">수정하기</button>
-										<input type="hidden" name="rid" value="창다이"/>
-										<input type="hidden" name="rseq" value="${rlist.rseq}"/>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				</c:forEach>
 			
 				<footer class="text-center" style="max-width: 920px;">
 					<p>
