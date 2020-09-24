@@ -56,41 +56,23 @@ public class UserController {
 	
 	@RequestMapping(value = "/userDetail")
 	public ModelAndView UserDetail(HttpServletRequest request, ModelAndView mv, UserVO vo) {
-		String userid="";
-		HttpSession session = request.getSession(false);
-		if(session != null && session.getAttribute("logID") != null) {
-			userid = (String)session.getAttribute("logID");
-			
-		}
+		String userid= (String)request.getSession().getAttribute("logID");
 		vo.setUserid(userid);
-		vo = userService.selectOne(vo);
-		if(vo != null) {
-			mv.addObject("get",vo);
-			mv.setViewName("user/userDetail");
-		}
+		vo = userService.read(userid);
+		mv.addObject("get", vo);
 		return mv;
 	}
 	
-	@RequestMapping(value = "/userEditf", method=RequestMethod.GET)
-	public ModelAndView getEdit(HttpServletRequest request, ModelAndView mv, UserVO vo) {
-		String id = (String)request.getSession().getAttribute("logID");
-		vo.setUserid(id);
-		vo = userService.selectOne(vo);
-		mv.addObject("get",vo);
-		mv.setViewName("user/userEdit");
-		return mv;
+	@RequestMapping(value = "/userEdit", method=RequestMethod.GET)
+	public ModelAndView getEdit(ModelAndView mv, UserVO vo) {
+		return mv.addObject("user",userService.selectOne(vo));
 	}
 	
 	@RequestMapping(value = "/userEdit", method = RequestMethod.POST)
 	public ModelAndView postEdit(HttpServletRequest request, UserVO vo, ModelAndView mv) {
 		if(userService.update(vo) > 0) {
-			System.out.println("업데이트성공"+vo);
-			mv.addObject("code", 0);
-		}else {
-			System.out.println("업데이트실패"+vo);
-			mv.addObject("code", 1);
+			mv.setViewName("redirect:/user/userDetail?userid="+vo.getUserid());
 		}
-		mv.setViewName("jsonView");
 		return mv;
 	}
 	
