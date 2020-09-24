@@ -11,26 +11,30 @@
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/comcustom.css">
 <script src="../resources/js/jquery.min.js"></script>
-<script>
-	$('#userEdit').click(function() {
-		$.ajax({
-			url : '/user/userEdit',
-			data : {
-				userid : $('#userid').val(),
-				nickname : $('#nickname').val(),
-				email : $('#email').val(),
-				sex : $('#sex').val(),
-			},
-			success : function(data) {
-				if (data.code == 0) {
-					alert('수정 성공 했습니다');
-				} else if (data.code == 1) {
-					alert('수정 실패 했습니다');
+<script type="text/javascript">
+		$(document).ready(function(){
+			// 취소
+			$(".cencle").on("click", function(){
+				
+				location.href = "/";
+						    
+			})
+		
+			$("#submit").on("click", function(){
+				if($("#userpw").val()==""){
+					alert("비밀번호를 입력해주세요.");
+					$("#userpw").focus();
+					return false;
 				}
-			}
-		});
-	});
-</script>
+				if($("#username").val()==""){
+					alert("성명을 입력해주세요.");
+					$("#username").focus();
+					return false;
+				}
+			});
+			
+		})
+	</script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -76,47 +80,30 @@
           </div>
         </nav>
 			<main id="main" class="col-md-9 float-left col p1-md-5 pt-4 main">
-				<div class="col-md-9">
-					<div class="list-group">
-						<a href="#" class="list-group-item active">회원 정보 수정</a>
-						<div class="list-group-item">
-							<form action="/user/userEdit" method="post">
-								<div class="form-group">
-									<label>아이디</label> 
-									<input type="text" id="userid" class="form-control" value="${get.userid}" readonly="readonly">
-								</div>
-								<%-- <div class="form-group">
-									<label>비밀번호</label> 
-									<input type="password" id="userpw" class="form-control" value="${get.userpw}">
-								</div>
-								<div class="form-group">
-									<label>비밀번호 확인</label> 
-									<input type="password" id="userpwcheck" class="form-control" value="${get.userpwcheck}">
-								</div>
-								<div class="form-group">
-									<label>이름</label> 
-									<input type="text" id="username" class="form-control" value="${get.username}" readonly="readonly">
-								</div> --%>
-								<div class="form-group">
-									<label>닉네임</label> 
-									<input type="text" id="nickname" class="form-control" value="${get.nickname}">
-								</div>
-								<div class="form-group">
-									<label>성별</label> 
-									<select class="form-control" id="sex" value="${get.sex}">
-										<option>남성</option>
-										<option>여성</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label>이메일</label> 
-									<input type="email" class="form-control" id="email" value="${get.email}">
-								</div>
-								<button id="userEdit" class="btn btn-primary">수정하기</button>
-							</form>
-						</div>
-					</div>
+				<section id="container">
+					<form action="/user/userEdit" method="post">
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userid">아이디</label>
+					<input class="form-control" type="text" id="userid" name="userid" value="${user.userid}" readonly="readonly"/>
 				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userpw">패스워드</label>
+					<input class="form-control" type="password" id="userpw" name="userpw" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userpwcheck">패스워드</label>
+					<input class="form-control" type="password" id="userpwcheck" name="userpwcheck" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="username">성명</label>
+					<input class="form-control" type="text" id="username" name="username" value="${user.username}"/>
+				</div>
+				<div class="form-group has-feedback">
+					<button class="btn btn-success" type="submit" id="submit">회원정보수정</button>
+					<button class="cencle btn btn-danger" type="button">취소</button>
+				</div>
+			</form>
+		</section>
 				<footer class="text-center" style="max-width: 1080px;">
 					<p>Copyright &copy; 2020 김창대 All Rights Reserved.</p>
 				</footer>
