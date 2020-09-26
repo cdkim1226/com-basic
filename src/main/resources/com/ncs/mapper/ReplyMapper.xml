@@ -6,7 +6,7 @@
   <mapper namespace="com.ncs.mapper.ReplyMapper">
   
   	<select id="selectList" resultType="com.ncs.vo.ReplyVO">
-  		select * from reply where seq = #{seq} order by rseq desc
+  		select * from reply where seq = #{seq} and rexist=1 order by rseq desc
   	</select>
   	
   <!-- 	<select id="selectOne" resultType="com.ncs.vo.ReplyVO">
@@ -28,4 +28,8 @@
    	<select id="get" resultType="com.ncs.vo.ReplyVO">
    		select * from reply where rseq = #{rseq}
    	</select>
+   	
+   	<update id="delete">
+   		update reply set rexist = 0 where rseq = #{rseq}
+   	</update>
   </mapper>
