@@ -12,4 +12,5 @@ public interface ReplyService {
 	int update(ReplyVO replyVO);
 	int modify(ReplyVO replyVO);
 	ReplyVO get(ReplyVO replyVO);
+	int delete(ReplyVO replyVO);
 }
