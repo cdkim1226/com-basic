@@ -43,5 +43,10 @@ public class ReplyServiceImpl implements ReplyService {
 	public ReplyVO get(ReplyVO replyVO) {
 		return replyMapper.get(replyVO);
 	}
+
+	@Override
+	public int delete(ReplyVO replyVO) {
+		return replyMapper.delete(replyVO);
+	}
 	
 }
