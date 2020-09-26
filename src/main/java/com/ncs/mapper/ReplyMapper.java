@@ -14,6 +14,7 @@ public interface ReplyMapper {
 	int update(ReplyVO replyVO);
 	int modify(ReplyVO replyVO);
 	ReplyVO get(ReplyVO replyVO);
+	int delete(ReplyVO replyVO);
 	
 
 }
