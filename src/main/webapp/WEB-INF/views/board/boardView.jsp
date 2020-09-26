@@ -109,7 +109,9 @@ function del() {
 										${rlist.rcontent }
 									</article>									
 									</fieldset>
-									<button type="button" class="btn btn-light float-right">삭제</button>
+									<a href="/reply/delete?rseq=${rlist.rseq}&seq=${rlist.seq}"
+										onclick="return confirm(&#39;정말로 삭제하시겠습니까?&#39;)"
+										class="btn btn-light float-right">삭제</a>
 									<a href="/reply/modify?rseq=${rlist.rseq}" class="btn btn-light float-right" data-toggle="modal" data-target="#modifyModal">댓글수정</a>
 								</form>
 							</div>
