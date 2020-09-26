@@ -44,4 +44,11 @@ public class ReplyController {
 	public ModelAndView getModify(ModelAndView mv, ReplyVO rvo) {
 		return mv.addObject("reply", replyService.get(rvo));
 	}
+	
+	@RequestMapping(value = "/delete")
+	public String delete(ReplyVO rvo) {
+		replyService.delete(rvo);
+		
+		return "redirect:/board/boardView?seq="+rvo.getSeq();
+	}
 }
