@@ -73,7 +73,7 @@
 												placeholder="내용을 입력하세요."></textarea>
 										</div>
 										<button type="submit" class="btn btn-primary">작성 완료</button>
-										<input type="hidden" name="id" value="창다이"/>
+										<input type="hidden" name="id" value="${logID}"/>
 										<a href="/board/board" class="btn btn-primary" onclick="return confirm(&#39;정말로 취소하시겠습니까?&#39;)">취소</a>
 									</div>
 								</form>
