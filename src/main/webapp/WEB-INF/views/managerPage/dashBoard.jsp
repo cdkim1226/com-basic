@@ -139,7 +139,7 @@
 									<h5>블로그</h5>
 								</div>
 								<div class="col-md-3 text-center bg-light p-5">
-									<img src="../resources/img/user.svg">
+									<img src="../resources/img/users.svg">
 									<h3>1054</h3>
 									<h5>회원</h5>
 								</div>
