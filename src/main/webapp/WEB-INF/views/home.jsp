@@ -55,7 +55,7 @@
         </nav>
         <main id="main" class="col-md-9 float-left col p1-md-5 pt-3 main">
           <div class="page-header mt-3">
-            <h2>커뮤니티 웹 사이트</h2>
+            <h2>신규 웹 사이트</h2>
           </div>
           <p class="lead">이곳은 회원님들끼리 자유롭게 의사소통을 하며 즐길 수 있는 커뮤니티 웹 사이트입니다.</p>
           <hr>
