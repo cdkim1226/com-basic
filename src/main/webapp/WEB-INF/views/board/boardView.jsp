@@ -140,7 +140,7 @@ function del() {
 										<button type="button" class="btn btn-secondary"
 											data-dismiss="modal">취소</button>
 										<button type="submit" class="btn btn-primary">수정하기</button>
-										<input type="hidden" name="rid" value="창다이"/>
+										<input type="hidden" name="rid" value="${rlist.rid}"/>
 										<input type="hidden" name="rseq" value="${rlist.rseq}"/>
 										<input type="hidden" name="seq" value="${rlist.seq}"/>
 									</div>
@@ -178,7 +178,7 @@ function del() {
 										<button type="button" class="btn btn-secondary"
 											data-dismiss="modal">취소</button>
 										<button type="submit" class="btn btn-primary">작성하기</button>
-										<input type="hidden" name="rid" value="창다이"/>
+										<input type="hidden" name="rid" value="${logID}"/>
 										<input type="hidden" name="seq" value="${get.seq}"/>
 									</div>
 								</form>
